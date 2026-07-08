@@ -12,8 +12,7 @@ export const experiences: ExperienceEntry[] = [
     title: "Visual Artist",
     org: "GIM ITB",
     period: "2026 – Present",
-    description:
-      "Create visual assets and illustrations to support a game development.",
+    description: "Create visual assets and illustrations to support a game development.",
   },
   {
     category: "Organization",

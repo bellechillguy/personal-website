@@ -1,8 +1,8 @@
 export const socials = [
   {
     name: "LinkedIn",
-    handle: "nisrina-zakiyah",
-    url: "https://www.linkedin.com/in/nisrina-zakiyah-225907288/",
+    handle: "nisrinaayz",
+    url: "https://www.linkedin.com/in/nisrinaayz/",
     color: "#0A66C2",
   },
   {

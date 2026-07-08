@@ -18,13 +18,13 @@ export interface InterestsData {
 export const interests: InterestsData = {
   reading: {
     label: "Goodreads",
-    note: "books I'm reading and rating",
+    note: "curl up with a good book",
     url: "https://www.goodreads.com/user/show/180689618-belle/",
   },
 
   music: {
     label: "Apple Music",
-    note: "the loop currently playing",
+    note: "many playlists to share",
     url: "https://music.apple.com/profile/bellechillguy/",
   },
 
@@ -38,7 +38,7 @@ export const interests: InterestsData = {
       src: "/interests/2.jpg",
     },
     {
-      caption: "touch the damn grass",
+      caption: "touch the grass",
       src: "/interests/3.jpg",
     },
   ],

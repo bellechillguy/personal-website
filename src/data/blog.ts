@@ -1,13 +1,13 @@
-import matter from 'gray-matter';
-import { marked } from 'marked';
+import matter from "gray-matter";
+import { marked } from "marked";
 
-const modules = import.meta.glob("/src/content/blogs/*.md", { 
-  query: "?raw", 
-  import: "default" 
+const modules = import.meta.glob("/src/content/blogs/*.md", {
+  query: "?raw",
+  import: "default",
 });
 
 function normalizeMarkdown(rawContent: string): string {
-  return rawContent.replace(/<br\s*\/?>(\s*)/gi, '\n\n');
+  return rawContent.replace(/<br\s*\/?>(\s*)/gi, "\n\n");
 }
 
 function escapeHtml(html: string): string {
@@ -20,7 +20,7 @@ function escapeHtml(html: string): string {
 }
 
 const renderer = new marked.Renderer();
-(renderer as { html?: (html: string) => string }).html = (html: string) => escapeHtml(html);
+renderer.html = ({ text }) => escapeHtml(text);
 
 marked.use({ renderer });
 
@@ -36,7 +36,7 @@ export async function getAllPosts(): Promise<BlogPost[]> {
   const posts: BlogPost[] = [];
 
   for (const path in modules) {
-    const rawContent = await modules[path]() as string;
+    const rawContent = (await modules[path]()) as string;
 
     const { data, content } = matter(rawContent);
     const normalizedContent = normalizeMarkdown(content);

@@ -1,9 +1,3 @@
-/**
- * Tech stack — categorized.
- * Colors are accent dots used in the TechTag chip.
- * Icons are rendered dynamically via TechTagIcon component.
- */
-
 export interface TechItem {
   name: string;
   color: string;
@@ -38,6 +32,7 @@ export const techStack: TechCategory[] = [
       { name: "Express.js", color: "#111827" },
       { name: "Django", color: "#0C4B33" },
       { name: "Flask", color: "#111827" },
+      { name: "Qwik", color: "#111827" },
     ],
   },
   {

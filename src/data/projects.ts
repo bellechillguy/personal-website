@@ -22,7 +22,7 @@ export const projects: Project[] = [
       "AI-powered drowning detection combining Computer Vision & IoT for real-time beach safety monitoring.",
     image: aquawatchImage,
     tech: [
-      "YOLO",
+      "YOLOv26",
       "DeepSORT",
       "OpenCV",
       "Flask",
@@ -86,7 +86,8 @@ export const projects: Project[] = [
   },
   {
     title: "Graphic Design Portfolio",
-    blurb: "Graphic design works: branding, illustration, event materials, and visual identity across multiple projects.",
+    blurb:
+      "Graphic design works: branding, illustration, event materials, and visual identity across multiple projects.",
     image: graphicDesignImage,
     tech: ["Canva", "Figma", "Procreate"],
     link: "https://canva.link/ilitztq92lrp0ac",
