@@ -1,7 +1,10 @@
 node_modules
 dist
+dist-ssr
+.vercel
 .output
 .vinxi
+.pnpm-store
 pnpm-lock.yaml
 package-lock.json
 bun.lock

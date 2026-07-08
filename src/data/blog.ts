@@ -1,5 +1,5 @@
-import matter from "gray-matter";
 import { marked } from "marked";
+import { parseFrontmatter } from "@/lib/markdown";
 
 const modules = import.meta.glob("/src/content/blogs/*.md", {
   query: "?raw",
@@ -38,7 +38,7 @@ export async function getAllPosts(): Promise<BlogPost[]> {
   for (const path in modules) {
     const rawContent = (await modules[path]()) as string;
 
-    const { data, content } = matter(rawContent);
+    const { data, content } = parseFrontmatter(rawContent);
     const normalizedContent = normalizeMarkdown(content);
     const htmlContent = marked.parse(normalizedContent);
 
