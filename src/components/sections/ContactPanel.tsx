@@ -1,3 +1,4 @@
+import { component$ } from "@builder.io/qwik";
 import { IconGithub, IconLinkedin, IconMedium } from "@/components/icons/SystemIcons";
 import { socials } from "@/data/socials";
 
@@ -13,10 +14,10 @@ const typeFor = (name: string) => {
   return "Articles & Writing";
 };
 
-export function ContactPanel() {
+export const ContactPanel = component$(() => {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-      {socials.map((s) => {
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+      {socials.map((s, index) => {
         const Logo = logoFor(s.name);
 
         return (
@@ -24,71 +25,79 @@ export function ContactPanel() {
             key={s.name}
             href={s.url}
             target="_blank"
-            rel="noreferrer noopener"
-            className="
-              group
-              relative
-              flex
-              flex-col
-              gap-4
+            rel="noopener noreferrer"
+            aria-label={`Visit ${s.name} profile`}
+            style={{ animationDelay: `${index * 80}ms` }}
+            class="
+              group relative overflow-hidden
+              flex flex-col justify-between
               rounded-2xl
               border border-border
               bg-surface
               p-5
+              shadow-sh-1
               transition-all duration-300
+              ease-[cubic-bezier(.22,1,.36,1)]
               hover:-translate-y-1
-              hover:shadow-lg
+              hover:shadow-sh-2
+              focus-visible:outline-none
+              focus-visible:ring-2
+              focus-visible:ring-ring
+              animate-window-in
             "
           >
+            <div
+              class="
+                absolute inset-x-0 top-0 h-1
+                bg-sticky
+                opacity-0
+                transition-opacity duration-300
+                group-hover:opacity-100
+              "
+            />
 
-            <div className="flex items-center justify-between">
-
-              <span
-                className="
-                  flex
-                  h-11
-                  w-11
-                  items-center
-                  justify-center
-                  rounded-xl
-                  bg-surface-2
-                  border border-border/60
+            <div class="flex items-start justify-between">
+              <div
+                class="
+                  flex h-11 w-11
+                  items-center justify-center
+                  rounded-sm
+                  border border-hairline
+                  bg-chrome
                   transition-all duration-300
-                  group-hover:scale-105
+                  group-hover:bg-bar
                 "
               >
                 <Logo
-                  className="
-                    w-5
-                    h-5
+                  class="
+                    h-11 w-11
                     text-foreground/80
-                    group-hover:text-foreground
-                    transition-colors
+                    transition-colors duration-300
+                    group-hover:text-white
                   "
                 />
-              </span>
-
+              </div>
 
               <span
-                className="
+                aria-hidden="true"
+                class="
                   text-lg
-                  text-foreground/30
+                  text-ink-3
                   transition-all duration-300
+                  group-hover:-translate-y-1
+                  group-hover:translate-x-1
                   group-hover:text-foreground
-                  group-hover:-translate-y-0.5
                 "
               >
                 ↗
               </span>
-
             </div>
 
-
-            <div>
+            <div class="mt-5">
               <h3
-                className="
+                class="
                   font-display
-                  text-[16px]
+                  text-base
                   font-bold
                   text-foreground
                 "
@@ -97,32 +106,45 @@ export function ContactPanel() {
               </h3>
 
               <p
-                className="
+                class="
                   mt-1
-                  text-[13px]
-                  text-foreground/60
+                  text-xs
+                  font-mono
+                  text-ink-2
+                  truncate
                 "
               >
                 {s.handle}
               </p>
             </div>
 
+            <div class="mt-5">
+              <span
+                class="
+                  inline-flex
+                  items-center
+                  rounded-full
+                  border border-hairline
+                  bg-chrome
+                  px-3 py-1
+                  text-[10px]
+                  font-bold
+                  uppercase
+                  tracking-wider
+                  text-ink-2
+                  transition-all duration-300
 
-            <span
-              className="
-                text-[11px]
-                uppercase
-                tracking-wider
-                font-semibold
-                text-foreground/40
-              "
-            >
-              {typeFor(s.name)}
-            </span>
-
+                  group-hover:bg-sticky
+                  group-hover:text-accent-ink
+                  group-hover:border-sticky
+                "
+              >
+                {typeFor(s.name)}
+              </span>
+            </div>
           </a>
         );
       })}
     </div>
   );
-}
+});
