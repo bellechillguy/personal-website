@@ -3,30 +3,22 @@
   "compilerOptions": {
     "target": "ES2022",
     "jsx": "react-jsx",
+    "jsxImportSource": "@builder.io/qwik",
     "module": "ESNext",
     "lib": ["ES2022", "DOM", "DOM.Iterable"],
-    
-    /* FIX: Menambahkan 'react' dan 'react-dom' ke dalam types */
-    "types": ["vite/client", "react", "react-dom"], 
-
-    /* Bundler mode */
+    "types": ["vite/client", "node"],
     "moduleResolution": "Bundler",
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": false,
     "noEmit": true,
-
-    /* Linting & Best Practices */
     "skipLibCheck": true,
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
-    
-    /* Tambahan agar kompatibilitas lebih stabil */
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
