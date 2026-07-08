@@ -1,46 +1,37 @@
-# bellechillguy Portfolio
+# bellechillguy
 
-A personal portfolio website for **Nisrina Zakiyah**.  
-This project uses a Mac-style desktop layout, with each page presented like a window on a desktop. It is built to show my work, experience, tech stack, writing, and a few things I enjoy outside of coding.
+This is my personal portfolio, built as a small Mac-inspired desktop on the web.
 
-## What’s inside
+I wanted the site to feel less like a plain resume page and more like opening a little workspace: a menubar at the top, a dock at the bottom, windows for each page, writing tucked into blog posts, and a few personal details that make it feel like mine.
 
-- Home page with a short intro and visual cards
-- About page with a personal profile
-- Projects page with selected works
-- Tech stack page grouped by category
-- Experience page with education, certifications, organizations, and volunteer roles
-- Blog page powered by Markdown files
-- Contact page with social links
-- Resume page with PDF preview and download
-- Interests page with reading, music, and a small gallery
+The site belongs to **Nisrina Zakiyah**, also known online as **bellechillguy**. It collects my projects, experience, tech stack, blog posts, resume, contact links, and a few interests outside of code.
 
-## Main features
+## What You Can Find Here
 
-- Mac-inspired interface with menubar, dock, and window styling
-- Responsive layout for desktop and mobile
-- Animated transitions using Motion
-- File-based routing with TanStack Router / TanStack Start
-- Blog content written in Markdown and rendered from `src/content/blogs`
-- Audio toggle for background music
-- Custom icon set and image assets for portfolio content
+- A home page with a short intro and visual notes
+- About, experience, projects, and tech stack pages
+- A Markdown-powered blog for write-ups, notes, and longer writing
+- A resume page with a PDF preview and download link
+- Contact links for GitHub, LinkedIn, and Medium
+- A small interests page with reading, music, and gallery content
+- A dock music button that plays a shuffled local playlist
 
-## Tech stack
+## Built With
 
-- React 19
+This version of the site is built with:
+
+- Qwik
+- Qwik City
 - TypeScript
-- TanStack Start
-- TanStack Router
-- TanStack Query
 - Vite
 - Tailwind CSS v4
-- Motion
 - gray-matter
 - marked
 - zod
-- sonner
 
-## Local development
+The visual system is mostly custom CSS and Tailwind utilities, shaped around a soft macOS-like interface.
+
+## Getting Started
 
 Install dependencies:
 
@@ -48,13 +39,21 @@ Install dependencies:
 npm install
 ```
 
-Run the development server:
+Start the local development server:
 
 ```bash
 npm run dev
 ```
 
-Build for production:
+By default, Vite is configured to run on:
+
+```text
+http://127.0.0.1:8080/
+```
+
+If that port is busy, Vite may choose another nearby port.
+
+Build the site:
 
 ```bash
 npm run build
@@ -78,54 +77,88 @@ Format the code:
 npm run format
 ```
 
-## Content sources
+## Content
 
-The portfolio content is mostly driven by data files in `src/data/`:
+Most of the portfolio content lives in simple TypeScript data files:
 
-- `projects.ts` for project cards
-- `experiences.ts` for timeline items
-- `tech-stack.ts` for grouped tools and languages
-- `socials.ts` for contact links
-- `interests.ts` for reading, music, and gallery content
-- `blog.ts` for loading Markdown blog posts
+```text
+src/data/projects.ts
+src/data/experiences.ts
+src/data/tech-stack.ts
+src/data/socials.ts
+src/data/interests.ts
+```
 
-Blog posts live in `src/content/blogs/` and use front matter for metadata such as title, date, and excerpt.
+Blog posts live here:
 
-## Project structure
+```text
+src/content/blogs/
+```
+
+Each blog post is a Markdown file with front matter for the title, date, and excerpt. The blog loader reads those files, parses the metadata, and renders the Markdown into the blog pages.
+
+Static files live in `public/`, including:
+
+- resume PDF
+- blog images
+- interest gallery images
+- local music files used by the dock player
+
+Project screenshots and app-style icons live in `src/assets/`.
+
+## Project Structure
 
 ```text
 src/
+  assets/          Images and icon assets imported by the app
   components/
-    mac/         # Desktop-inspired UI pieces
-    sections/    # Page content sections
-    icons/       # App and tech icons
+    icons/         App icons and technology icons
+    mac/           Menubar, dock, window, note, and desktop-style UI pieces
+    sections/      Reusable page sections
   content/
-    blogs/       # Markdown blog posts
-  context/       # Shared React context
-  data/          # Portfolio data sources
-  routes/        # TanStack file-based routes
-public/          # Static assets like resume, music, images, and gallery files
+    blogs/         Markdown blog posts
+  data/            Portfolio content sources
+  lib/             Small utilities for markdown and error handling
+  routes/          Qwik City routes
+public/
+  images/          Blog and page images served as static files
+  interests/       Gallery photos
+  music/           Local playlist files
+  resume.pdf       Resume preview and download file
 ```
 
 ## Routes
 
-- `/` Home
-- `/about` About
-- `/projects` Projects
-- `/tech-stack` Tech stack
-- `/experience` Experience
-- `/blog` Blog index
-- `/blog/:slug` Blog post detail
-- `/contact` Contact
-- `/resume` Resume
-- `/interests` Interests
+```text
+/                 Home
+/about            About
+/projects         Projects
+/tech-stack       Tech stack
+/experience       Experience
+/blog             Blog index
+/blog/:slug       Blog post detail
+/interests        Interests
+/contact          Contact
+/resume           Resume
+/sitemap.xml      Generated sitemap
+```
 
-## Notes
+## Notes For Future Me
 
-- The app uses `public/resume.pdf` for the resume page.
-- Background audio comes from `public/music.mp3`.
-- Static images for the portfolio live in `src/assets` and `public/`.
+When adding a new blog post, put the Markdown file in `src/content/blogs/` and make sure it has front matter like this:
+
+```md
+---
+title: "Post Title"
+date: "2026-07-08"
+excerpt: "A short summary for the blog card."
+---
+```
+
+When adding a new song, place the file in `public/music/` and add its path to the playlist in `src/components/mac/Dock.tsx`.
+
+When updating portfolio content, start with the files in `src/data/`. The pages are mostly just rendering those data sources.
 
 ## License
 
-No license file is included in this archive.
+This project is licensed under the MIT License. See [LICENSE](./LICENSE) for details.
