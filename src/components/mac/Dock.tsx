@@ -1,130 +1,315 @@
-import { useRef, useState, useEffect } from "react";
-import { Link } from "@tanstack/react-router";
-import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
-import { useAudio } from "@/context/AudioContext";
+import { component$, useSignal, $, useVisibleTask$ } from "@builder.io/qwik";
+import { Link } from "@builder.io/qwik-city";
 import {
+  IconAppleMusic,
+  IconDoc,
   IconFinder,
   IconFolder,
-  IconStack,
+  IconHeart,
+  IconMail,
   IconMap,
   IconNote,
-  IconMail,
-  IconDoc,
-  IconHeart,
   IconPDF,
-  IconAppleMusic,
+  IconStack,
 } from "@/components/icons/SystemIcons";
 
-const items = [
-  { to: "/", label: "Finder", Icon: IconFinder },
-  { to: "/about", label: "About", Icon: IconNote },
-  { to: "/projects", label: "Projects", Icon: IconFolder },
-  { to: "/tech-stack", label: "Tech", Icon: IconStack },
-  { to: "/experience", label: "Experience", Icon: IconMap },
-  { to: "/blog", label: "Blog", Icon: IconDoc },
-  { to: "/interests", label: "Interests", Icon: IconHeart },
-  { to: "/contact", label: "Contact", Icon: IconMail },
+type IconKey =
+  | "finder"
+  | "about"
+  | "projects"
+  | "tech"
+  | "experience"
+  | "blog"
+  | "interests"
+  | "contact"
+  | "resume";
+
+const items: { to: string; label: string; icon: IconKey }[] = [
+  { to: "/", label: "Finder", icon: "finder" },
+  { to: "/about", label: "About", icon: "about" },
+  { to: "/projects", label: "Projects", icon: "projects" },
+  { to: "/tech-stack", label: "Tech", icon: "tech" },
+  { to: "/experience", label: "Experience", icon: "experience" },
+  { to: "/blog", label: "Blog", icon: "blog" },
+  { to: "/interests", label: "Interests", icon: "interests" },
+  { to: "/contact", label: "Contact", icon: "contact" },
 ];
 
-const rightItems = [
-  { to: "/resume", label: "Resume", Icon: IconPDF },
+const rightItems: { to: string; label: string; icon: IconKey }[] = [
+  { to: "/resume", label: "Resume", icon: "resume" },
 ];
 
-// ITEM DOCK COMPONENTS
-function DockItem({ to, label, Icon, mouseX, isMobile }: any) {
-  const ref = useRef<HTMLDivElement>(null);
+const PLAYLIST = [
+  "/music/honeybee.mp3",
+  "/music/begged.mp3",
+  "/music/cigarette-smoke.mp3",
+  "/music/drop-dead.mp3",
+  "/music/expectations.mp3",
+  "/music/heart.mp3",
+  "/music/less.mp3",
+  "/music/maggots-for-brains.mp3",
+  "/music/my-way.mp3",
+  "/music/never-do.mp3",
+  "/music/purple.mp3",
+  "/music/stupid-song.mp3",
+  "/music/the-cure.mp3",
+  "/music/whats-wrong-with-me.mp3",
+];
 
-  const distance = useTransform(mouseX, (val: number) => {
-    const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
-    return val - bounds.x - bounds.width / 2;
+const BASE_DESKTOP_SIZE = 56;
+const BASE_MOBILE_SIZE = 42;
+const MAX_DESKTOP_SIZE = 80;
+const MAGNIFICATION_RANGE = 150;
+const SPRING_EASE = 0.22;
+
+interface DockMotionState {
+  frame: number;
+  icons: HTMLElement[];
+  current: WeakMap<HTMLElement, number>;
+  target: WeakMap<HTMLElement, number>;
+}
+
+const dockMotion = new WeakMap<HTMLElement, DockMotionState>();
+
+function getMotionState(dock: HTMLElement): DockMotionState {
+  let state = dockMotion.get(dock);
+  if (!state) {
+    state = {
+      frame: 0,
+      icons: [],
+      current: new WeakMap<HTMLElement, number>(),
+      target: new WeakMap<HTMLElement, number>(),
+    };
+    dockMotion.set(dock, state);
+  }
+  state.icons = Array.from(dock.querySelectorAll<HTMLElement>("[data-dock-icon]"));
+  return state;
+}
+
+function setIconSize(icon: HTMLElement, size: number) {
+  icon.style.width = `${size}px`;
+  icon.style.height = `${size}px`;
+}
+
+function clearIconSize(icon: HTMLElement) {
+  icon.style.width = "";
+  icon.style.height = "";
+}
+
+function animateDock(dock: HTMLElement) {
+  const state = getMotionState(dock);
+  let shouldContinue = false;
+  let allAtBase = true;
+
+  state.icons.forEach((icon) => {
+    const targetSize = state.target.get(icon) ?? BASE_DESKTOP_SIZE;
+    const currentSize = state.current.get(icon) ?? BASE_DESKTOP_SIZE;
+    const nextSize = currentSize + (targetSize - currentSize) * SPRING_EASE;
+    const settledSize = Math.abs(nextSize - targetSize) < 0.2 ? targetSize : nextSize;
+
+    state.current.set(icon, settledSize);
+    setIconSize(icon, settledSize);
+
+    if (Math.abs(settledSize - targetSize) >= 0.2) shouldContinue = true;
+    if (
+      Math.abs(targetSize - BASE_DESKTOP_SIZE) >= 0.2 ||
+      Math.abs(settledSize - BASE_DESKTOP_SIZE) >= 0.2
+    ) {
+      allAtBase = false;
+    }
   });
 
-  const sizeSync = useTransform(distance, [-150, 0, 150], [56, 80, 56]);
-  const size = useSpring(sizeSync, { mass: 0.1, stiffness: 150, damping: 12 });
+  if (shouldContinue) {
+    state.frame = window.requestAnimationFrame(() => animateDock(dock));
+    return;
+  }
 
+  state.frame = 0;
+  if (allAtBase) {
+    state.icons.forEach((icon) => {
+      state.current.set(icon, BASE_DESKTOP_SIZE);
+      clearIconSize(icon);
+    });
+  }
+}
+
+function scheduleDockAnimation(dock: HTMLElement) {
+  const state = getMotionState(dock);
+  if (!state.frame) {
+    state.frame = window.requestAnimationFrame(() => animateDock(dock));
+  }
+}
+
+function resetDock(dock: HTMLElement) {
+  const state = getMotionState(dock);
+  state.icons.forEach((icon) => {
+    const currentSize = Number.parseFloat(icon.style.width) || BASE_DESKTOP_SIZE;
+    state.current.set(icon, currentSize);
+    state.target.set(icon, BASE_DESKTOP_SIZE);
+  });
+  scheduleDockAnimation(dock);
+}
+
+function updateDockMagnification(dock: HTMLElement, mouseX: number) {
+  const state = getMotionState(dock);
+
+  if (window.innerWidth < 640) {
+    if (state.frame) {
+      window.cancelAnimationFrame(state.frame);
+      state.frame = 0;
+    }
+    state.icons.forEach((icon) => {
+      state.current.set(icon, BASE_MOBILE_SIZE);
+      state.target.set(icon, BASE_MOBILE_SIZE);
+      clearIconSize(icon);
+    });
+    return;
+  }
+
+  state.icons.forEach((icon) => {
+    const rect = icon.getBoundingClientRect();
+    const center = rect.left + rect.width / 2;
+    const distance = Math.abs(mouseX - center);
+    const proximity = Math.max(0, 1 - distance / MAGNIFICATION_RANGE);
+    const eased = proximity * proximity * (3 - 2 * proximity);
+    const targetSize = BASE_DESKTOP_SIZE + (MAX_DESKTOP_SIZE - BASE_DESKTOP_SIZE) * eased;
+    const currentSize = Number.parseFloat(icon.style.width) || BASE_DESKTOP_SIZE;
+
+    state.current.set(icon, currentSize);
+    state.target.set(icon, targetSize);
+  });
+
+  scheduleDockAnimation(dock);
+}
+
+const DockIcon = component$(({ icon }: { icon: IconKey }) => {
+  const iconClass = "max-w-full max-h-full w-auto h-auto drop-shadow-md";
+
+  if (icon === "finder") return <IconFinder class={iconClass} />;
+  if (icon === "about") return <IconNote class={iconClass} />;
+  if (icon === "projects") return <IconFolder class={iconClass} />;
+  if (icon === "tech") return <IconStack class={iconClass} />;
+  if (icon === "experience") return <IconMap class={iconClass} />;
+  if (icon === "blog") return <IconDoc class={iconClass} />;
+  if (icon === "interests") return <IconHeart class={iconClass} />;
+  if (icon === "contact") return <IconMail class={iconClass} />;
+  return <IconPDF class={iconClass} />;
+});
+
+const DockItem = component$(({ to, label, icon }: { to: string; label: string; icon: IconKey }) => {
   return (
-    <Link to={to as any} className="group relative flex flex-col items-center justify-end shrink-0" aria-label={label}>
-      <span className="hidden sm:block absolute -top-10 text-[11px] font-medium opacity-0 group-hover:opacity-100 transition-opacity bg-foreground/90 text-background px-2.5 py-1 rounded-md whitespace-nowrap">
-        {label}
-      </span>
-      <motion.div
-        ref={ref}
-        style={isMobile ? { width: 42, height: 42 } : { width: size, height: size }}
-        className="flex items-center justify-center rounded-2xl transition-colors hover:bg-black/5 dark:hover:bg-white/5"
+    <Link
+      href={to}
+      class="dock-item group relative flex flex-col items-center justify-end shrink-0"
+      aria-label={label}
+    >
+      <span
+        data-dock-icon
+        class="dock-icon flex items-center justify-center transition-transform origin-bottom"
       >
-        <Icon className="max-w-full max-h-full w-auto h-auto drop-shadow-sm" />
-      </motion.div>
+        <DockIcon icon={icon} />
+      </span>
+      <div class="h-1 w-1 rounded-full bg-foreground/20 mt-1 opacity-0 group-hover:opacity-100 transition-opacity" />
     </Link>
   );
-}
+});
 
-// MUSIC BUTTON COMPONENTS
-function MusicToggleButton({ mouseX, isMobile }: any) {
-  const { isPlaying, toggleAudio } = useAudio();
-  const ref = useRef<HTMLDivElement>(null);
+const MusicToggleButton = component$(() => {
+  const isPlaying = useSignal(false);
+  const currentTrackIndex = useSignal(0);
+  const audioRef = useSignal<HTMLAudioElement>();
+  const shuffledPlaylist = useSignal<string[]>(PLAYLIST);
 
-  const distance = useTransform(mouseX, (val: number) => {
-    const bounds = ref.current?.getBoundingClientRect() ?? { x: 0, width: 0 };
-    return val - bounds.x - bounds.width / 2;
+  useVisibleTask$(() => {
+    const shuffled = [...PLAYLIST].sort(() => Math.random() - 0.5);
+    shuffledPlaylist.value = shuffled;
+
+    if (audioRef.value) {
+      audioRef.value.src = shuffled[0];
+      audioRef.value.load();
+    }
   });
 
-  const sizeSync = useTransform(distance, [-150, 0, 150], [56, 80, 56]);
-  const size = useSpring(sizeSync, { mass: 0.1, stiffness: 100, damping: 12 });
+  const playNextTrack = $(async () => {
+    const audio = audioRef.value;
+    if (!audio) return;
+
+    currentTrackIndex.value = (currentTrackIndex.value + 1) % shuffledPlaylist.value.length;
+    audio.src = shuffledPlaylist.value[currentTrackIndex.value];
+    audio.load();
+
+    try {
+      await audio.play();
+      isPlaying.value = true;
+    } catch {
+      isPlaying.value = false;
+    }
+  });
+
+  const togglePlay = $(async () => {
+    const audio = audioRef.value;
+    if (!audio) return;
+
+    if (isPlaying.value) {
+      audio.pause();
+      isPlaying.value = false;
+    } else {
+      try {
+        await audio.play();
+        isPlaying.value = true;
+      } catch {
+        isPlaying.value = false;
+      }
+    }
+  });
 
   return (
-    <button 
-      onClick={toggleAudio} 
-      className="group relative flex flex-col items-center justify-end shrink-0 outline-none" 
-      aria-label="Toggle Music"
+    <button
+      onClick$={togglePlay}
+      class="dock-item group relative flex flex-col items-center justify-end shrink-0 outline-none"
     >
-      <motion.div
-        ref={ref}
-        style={isMobile ? { width: 42, height: 42 } : { width: size, height: size }}
-        className="relative flex items-center justify-center rounded-xl transition-colors hover:bg-black/5 dark:hover:bg-white/5 overflow-hidden"
+      <span
+        data-dock-icon
+        class="dock-icon relative flex items-center justify-center rounded-xl transition-colors p-1"
       >
-        {isPlaying && (
-          <div 
-            className="absolute inset-0 rounded-xl shadow-[inset_0_0_0_4px_#f472b6] animate-pulse pointer-events-none z-20" 
-          />
-        )}
+        {isPlaying.value ? (
+          <span class="absolute inset-0 rounded-xl shadow-[inset_0_0_0_4px_#f472b6] animate-pulse pointer-events-none z-20" />
+        ) : null}
 
-  {/* Ikon Apple Music */}
-  <IconAppleMusic className="w-full h-full z-10" />
-</motion.div>
-      
+        <IconAppleMusic class="max-w-full max-h-full w-auto h-auto drop-shadow-sm z-10" />
+      </span>
+
+      <div
+        class={`h-1 w-1 rounded-full mt-1 transition-colors ${isPlaying.value ? "bg-foreground" : "bg-foreground/20 opacity-0 group-hover:opacity-100"}`}
+      />
+
+      <audio ref={audioRef} src={PLAYLIST[0]} preload="metadata" onEnded$={playNextTrack} />
     </button>
   );
-}
+});
 
-// MAIN DOCK
-export function Dock() {
-  const mouseX = useMotionValue(Infinity);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 640);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
-
+export const Dock = component$(() => {
   return (
     <nav
-      className="fixed bottom-4 left-1/2 -translate-x-1/2 z-40 px-2 py-2 sm:px-3 sm:py-2 rounded-3xl bg-white/60 dark:bg-zinc-900/60 backdrop-blur-2xl border border-white/40 dark:border-white/10 shadow-2xl flex items-end gap-1.5 sm:gap-2.5 max-w-[calc(100vw-24px)] overflow-x-auto scrollbar-none"
-      onMouseMove={(e) => !isMobile && mouseX.set(e.pageX)}
-      onMouseLeave={() => !isMobile && mouseX.set(Infinity)}
+      class="dock fixed bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 z-40 px-2 py-2 sm:px-3 sm:py-2.5 rounded-3xl bg-chrome/60 backdrop-blur-[20px] border border-hairline shadow-window flex items-end gap-1.5 sm:gap-2.5 max-w-[calc(100vw-16px)] overflow-x-auto scrollbar-none touch-pan-x"
+      onMouseMove$={(event, element) => {
+        updateDockMagnification(element, event.clientX);
+      }}
+      onMouseLeave$={(_, element) => {
+        resetDock(element);
+      }}
     >
       {items.map((item) => (
-        <DockItem key={item.to + item.label} {...item} mouseX={mouseX} isMobile={isMobile} />
+        <DockItem key={item.to + item.label} {...item} />
       ))}
-      
-      <MusicToggleButton mouseX={mouseX} isMobile={isMobile} />
 
-      <span className="w-px h-7 sm:h-10 bg-zinc-300 dark:bg-zinc-700 mx-1 sm:mx-1.5 rounded-full shrink-0" />
-      
+      <MusicToggleButton />
+
+      <span class="w-[1px] h-10 bg-border mx-1 sm:mx-1.5 shrink-0" />
+
       {rightItems.map((item) => (
-        <DockItem key={item.to + item.label} {...item} mouseX={mouseX} isMobile={isMobile} />
+        <DockItem key={item.to + item.label} {...item} />
       ))}
     </nav>
   );
-}
+});

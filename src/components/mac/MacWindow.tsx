@@ -1,44 +1,62 @@
-import { useNavigate } from "@tanstack/react-router";
-import { motion } from "motion/react";
-import type { ReactNode } from "react";
+import { component$, Slot } from "@builder.io/qwik";
+import { Link } from "@builder.io/qwik-city";
 
 interface MacWindowProps {
   title: string;
   subtitle?: string;
-  children: ReactNode;
   maxWidth?: string;
 }
 
-export function MacWindow({ title, subtitle, children, maxWidth = "960px" }: MacWindowProps) {
-  const navigate = useNavigate();
+export const MacWindow = component$(({ title, subtitle, maxWidth = "960px" }: MacWindowProps) => {
   return (
-    <motion.section
-      initial={{ opacity: 0, scale: 0.97, y: 8 }}
-      animate={{ opacity: 1, scale: 1, y: 0 }}
-      transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
-      className="mac-window mx-auto w-full"
+    <section
+      class="mac-window mx-auto w-full animate-window-in transition-all duration-300"
       style={{ maxWidth }}
       aria-labelledby="window-title"
     >
-      <header className="mac-titlebar relative">
-        <div className="flex items-center gap-2">
-          <button
-            onClick={() => navigate({ to: "/" })}
+      <header class="mac-titlebar relative justify-between">
+        <div class="flex items-center gap-1.5 z-10 group/lights">
+          <Link
+            href="/"
             aria-label="Close window"
-            className="traffic-light hover:brightness-90 cursor-pointer"
-            style={{ background: "var(--tl-red)" }}
-          />
-          <span className="traffic-light" style={{ background: "var(--tl-yellow)" }} />
-          <span className="traffic-light" style={{ background: "var(--tl-green)" }} />
+            class="traffic-light bg-tl-red cursor-pointer relative flex items-center justify-center active:brightness-75"
+          >
+            <span class="absolute text-[9px] font-bold text-red-900/60 opacity-0 group-hover/lights:opacity-100 select-none transition-opacity pointer-events-none mb-[1px]">
+              ×
+            </span>
+          </Link>
+
+          <span class="traffic-light bg-tl-yellow relative flex items-center justify-center">
+            <span class="absolute text-[8px] font-bold text-amber-900/60 opacity-0 group-hover/lights:opacity-100 select-none transition-opacity pointer-events-none mb-[2px]">
+              -
+            </span>
+          </span>
+
+          <span class="traffic-light bg-tl-green relative flex items-center justify-center">
+            <span class="absolute text-[7px] font-bold text-green-900/60 opacity-0 group-hover/lights:opacity-100 select-none transition-opacity pointer-events-none">
+              +
+            </span>
+          </span>
         </div>
-        <div className="absolute left-1/2 -translate-x-1/2 text-center pointer-events-none">
-          <div id="window-title" className="font-display font-semibold">
+
+        <div class="absolute inset-x-0 mx-auto w-fit text-center pointer-events-none z-0 px-20">
+          <h2
+            id="window-title"
+            class="font-display font-semibold tracking-tight text-foreground truncate max-w-[180px] sm:max-w-[360px]"
+          >
             {title}
-          </div>
-          {subtitle ? <div className="text-[11px] text-ink-3 font-normal">{subtitle}</div> : null}
+          </h2>
+          {subtitle ? (
+            <p class="text-[10px] text-ink-2 font-normal truncate mt-px">{subtitle}</p>
+          ) : null}
         </div>
+
+        <div class="w-[52px] hidden sm:block pointer-events-none opacity-0" aria-hidden="true" />
       </header>
-      <div className="p-5 md:p-8">{children}</div>
-    </motion.section>
+
+      <div class="p-4 sm:p-6 md:p-8 bg-surface text-foreground selection:bg-accent selection:text-accent-ink">
+        <Slot />
+      </div>
+    </section>
   );
-}
+});
