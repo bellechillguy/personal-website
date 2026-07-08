@@ -1,10 +1,12 @@
-# bellechillguy
+# 𝓑ellechillguy
 
-This is my personal portfolio, built as a small Mac-inspired desktop on the web.
+Welcome to my personal portfolio website.
 
-I wanted the site to feel less like a plain resume page and more like opening a little workspace: a menubar at the top, a dock at the bottom, windows for each page, writing tucked into blog posts, and a few personal details that make it feel like mine.
+I wanted to create a website that truly represents who I am, like my work and the things I care about. So, here we are.
 
-The site belongs to **Nisrina Zakiyah**, also known online as **bellechillguy**. It collects my projects, experience, tech stack, blog posts, resume, contact links, and a few interests outside of code.
+![image](https://github.com/user-attachments/assets/9fc79a07-1be8-4e73-b80e-b0b97c8df959)
+
+Live Demo: [bellechillguy.vercel.app](https://bellechillguy.vercel.app)
 
 ## What You Can Find Here
 
@@ -158,7 +160,3 @@ excerpt: "A short summary for the blog card."
 When adding a new song, place the file in `public/music/` and add its path to the playlist in `src/components/mac/Dock.tsx`.
 
 When updating portfolio content, start with the files in `src/data/`. The pages are mostly just rendering those data sources.
-
-## License
-
-This project is licensed under the MIT License. See [LICENSE](./LICENSE) for details.
