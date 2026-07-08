@@ -3,17 +3,22 @@ node_modules/
 
 # Build output
 dist/
+dist-ssr/
+.qwik/
 .tanstack/
 .vite/
 .vinxi/
 .output/
 .nitro/
 
+# Hosting and tool state
+.vercel/
+.netlify/
+.wrangler/
+
 # Environment
 .env
-.env.local
-.env.development
-.env.production
+.env.*
 
 # Logs
 logs/
@@ -25,6 +30,10 @@ pnpm-debug.log*
 # Coverage
 coverage/
 
+# Cache
+.cache/
+.turbo/
+
 # IDE
 .vscode/
 .idea/
@@ -35,15 +44,10 @@ coverage/
 # Temporary files
 *.tmp
 *.temp
+*.zip
+*.tar.gz
 
 # TypeScript
 *.tsbuildinfo
 
-public/
-content/
-assets/projects/
-
-.zip
-
 convert-images.js
-
