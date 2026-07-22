@@ -19,6 +19,41 @@ function escapeHtml(html: string): string {
     .replaceAll("'", "&#39;");
 }
 
+function toPlainText(markdown: string): string {
+  return markdown
+    .replace(/```[\s\S]*?```/g, " ")
+    .replace(/!\[[^\]]*\]\([^)]*\)/g, " ")
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&(?:emsp|nbsp);/gi, " ")
+    .replace(/[#>*_`~\\-]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function createExcerpt(markdown: string, maximumLength = 165): string {
+  const plainText = toPlainText(markdown);
+  if (plainText.length <= maximumLength) return plainText;
+
+  const shortened = plainText.slice(0, maximumLength - 1).replace(/\s+\S*$/, "");
+  return `${shortened}…`;
+}
+
+function inferCategory(title: string): string {
+  if (/\biot\b|embedded|mqtt|sensor|nodered/i.test(title)) return "IoT";
+  if (/ctf|osint|cryptography|reverse engineering|pwn|forensics|web exploitation/i.test(title)) {
+    return "Cybersecurity";
+  }
+  if (/movie|review/i.test(title)) return "Review";
+  if (/development|platform|docker|infrastructure|moody/i.test(title)) return "Projects";
+  return "Notes";
+}
+
+function estimateReadingMinutes(markdown: string): number {
+  const words = toPlainText(markdown).split(/\s+/).filter(Boolean).length;
+  return Math.max(1, Math.ceil(words / 200));
+}
+
 const renderer = new marked.Renderer();
 renderer.html = ({ text }) => escapeHtml(text);
 
@@ -29,6 +64,8 @@ export interface BlogPost {
   title: string;
   date: string;
   excerpt: string;
+  category: string;
+  readingMinutes: number;
   htmlContent: string;
 }
 
@@ -42,11 +79,15 @@ export async function getAllPosts(): Promise<BlogPost[]> {
     const normalizedContent = normalizeMarkdown(content);
     const htmlContent = marked.parse(normalizedContent);
 
+    const title = data.title || "Untitled";
+
     posts.push({
       slug: path.split("/").pop()?.replace(".md", "") || "",
-      title: data.title || "Untitled",
+      title,
       date: data.date ? new Date(data.date).toISOString() : new Date().toISOString(),
-      excerpt: data.excerpt || "",
+      excerpt: data.excerpt || createExcerpt(normalizedContent),
+      category: inferCategory(title),
+      readingMinutes: estimateReadingMinutes(normalizedContent),
       htmlContent: htmlContent as string,
     });
   }

@@ -1,4 +1,4 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import { Link, routeLoader$, type DocumentHead } from "@builder.io/qwik-city";
 import { MacWindow } from "@/components/mac/MacWindow";
 import { getPost } from "@/data/blog";
@@ -21,36 +21,79 @@ export const usePost = routeLoader$(async (event) => {
 
 export default component$(() => {
   const post = usePost();
+  const readingProgress = useSignal(0);
+
+  useVisibleTask$(({ cleanup }) => {
+    const updateProgress = () => {
+      const article = document.querySelector<HTMLElement>(".blog-article");
+      if (!article) return;
+
+      const articleTop = article.getBoundingClientRect().top + window.scrollY;
+      const articleEnd = articleTop + article.offsetHeight - window.innerHeight * 0.55;
+      const distance = Math.max(1, articleEnd - articleTop);
+      readingProgress.value = Math.min(1, Math.max(0, (window.scrollY - articleTop) / distance));
+    };
+
+    updateProgress();
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress);
+
+    cleanup(() => {
+      window.removeEventListener("scroll", updateProgress);
+      window.removeEventListener("resize", updateProgress);
+    });
+  });
 
   return (
-    <MacWindow title={post.value.title} maxWidth="900px">
-      <div class="mx-auto w-full max-w-[740px] px-1 sm:px-2">
-        <div class="mb-8">
-          <Link
-            href="/blog"
-            class="inline-flex items-center gap-2 rounded-full border border-border/70 bg-muted/60 px-3 py-1.5 text-[13px] font-semibold text-foreground/65 transition-colors hover:border-border hover:bg-surface hover:text-foreground"
-          >
-            ← Back to all blogs
-          </Link>
-        </div>
-
-        <header class="mb-8 border-b border-border/70 pb-7">
-          <p class="mb-3 text-[12px] font-bold uppercase tracking-[0.18em] text-foreground/45">
-            {dateFormatter.format(new Date(post.value.date))}
-          </p>
-          <h1 class="font-display text-[30px] font-extrabold leading-tight text-foreground sm:text-[40px]">
-            {post.value.title}
-          </h1>
-          {post.value.excerpt ? (
-            <p class="mt-4 text-[15.5px] leading-7 text-foreground/65 sm:text-[17px]">
-              {post.value.excerpt}
-            </p>
-          ) : null}
-        </header>
-
-        <article class="blog-article pb-10" dangerouslySetInnerHTML={post.value.htmlContent} />
+    <>
+      <div class="blog-reading-progress" aria-hidden="true">
+        <span style={{ transform: `scaleX(${readingProgress.value})` }} />
       </div>
-    </MacWindow>
+
+      <MacWindow
+        title={post.value.title}
+        subtitle={`${post.value.readingMinutes} min read`}
+        maxWidth="940px"
+        bodyClass="blog-post-window"
+      >
+        <div id="article-top" class="blog-post-shell">
+          <nav class="blog-post-toolbar" aria-label="Blog navigation">
+            <Link href="/blog" class="blog-back-link">
+              <span aria-hidden="true">←</span>
+              All articles
+            </Link>
+            <span>{post.value.category}</span>
+          </nav>
+
+          <header class="blog-post-header">
+            <div class="blog-post-meta">
+              <span>{post.value.category}</span>
+              <time dateTime={post.value.date}>
+                {dateFormatter.format(new Date(post.value.date))}
+              </time>
+              <span aria-hidden="true">•</span>
+              <span>{post.value.readingMinutes} min read</span>
+            </div>
+
+            <h1>{post.value.title}</h1>
+            <p>{post.value.excerpt}</p>
+          </header>
+
+          <article class="blog-article" dangerouslySetInnerHTML={post.value.htmlContent} />
+
+          <footer class="blog-post-footer">
+            <div>
+              <p>That’s all for this note.</p>
+              <span>Thanks for reading ♡</span>
+            </div>
+            <div class="blog-post-footer-actions">
+              <Link href="/blog">More articles</Link>
+              <a href="#article-top">Back to top ↑</a>
+            </div>
+          </footer>
+        </div>
+      </MacWindow>
+    </>
   );
 });
 
