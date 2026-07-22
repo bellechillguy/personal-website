@@ -1,25 +1,25 @@
 # Dependencies
 node_modules/
+.pnpm-store/
 
-# Build output
+# Qwik / Vite build output
 dist/
 dist-ssr/
 .qwik/
-.tanstack/
 .vite/
-.vinxi/
 .output/
 .nitro/
-.pnpm-store/
 
-# Hosting and tool state
+# Deployment state
 .vercel/
 .netlify/
 .wrangler/
 
-# Environment
+# Environment and secrets
 .env
 .env.*
+!.env.example
+!.env.*.example
 
 # Logs
 logs/
@@ -31,15 +31,19 @@ pnpm-debug.log*
 # Coverage
 coverage/
 
-# Cache
+# Tool caches
 .cache/
 .turbo/
+.eslintcache
+.prettier-cache
+.stylelintcache
+*.tsbuildinfo
 
-# IDE
+# Editors
 .vscode/
 .idea/
 
-# macOS
+# Operating system files
 .DS_Store
 
 # Temporary files
@@ -48,10 +52,5 @@ coverage/
 *.zip
 *.tar.gz
 
-# TypeScript
-*.tsbuildinfo
-
+# Local one-off utilities and unused source media
 convert-images.js
-
-# Vercel
-.vercel
