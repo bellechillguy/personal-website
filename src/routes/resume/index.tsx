@@ -33,12 +33,12 @@ export default component$(() => {
           </div>
         </div>
 
-        <div class="rounded-2xl border border-border bg-[#d1d5db] p-2 shadow-[var(--sh-2)]">
-          <div class="overflow-hidden rounded-xl border border-border bg-white">
+        <div class="resume-pdf-shell rounded-2xl border border-border bg-[#d1d5db] p-2 shadow-[var(--sh-2)]">
+          <div class="resume-pdf-viewport overflow-hidden rounded-xl border border-border bg-white">
             <iframe
-              src="/resume.pdf#toolbar=0&navpanes=0"
+              src="/resume.pdf#page=1&view=FitH&zoom=page-width&toolbar=0&navpanes=0"
               title="Resume PDF"
-              class="block w-full h-[65vh] sm:h-[75vh]"
+              class="resume-pdf-frame"
             />
           </div>
         </div>
