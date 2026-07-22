@@ -5,43 +5,44 @@ import { StickyNote } from "@/components/mac/StickyNote";
 
 export default component$(() => {
   return (
-    <div class="max-w-6xl mx-auto px-4 md:px-6">
-      <section class="grid grid-cols-1 lg:grid-cols-[1.2fr_auto] gap-12 lg:gap-16 items-center pt-12 md:pt-28 pb-12 md:pb-20">
-        <div class="space-y-6 md:space-y-8 animate-window-in">
+    <div class="home-stage mx-auto max-w-6xl px-2 md:px-6">
+      <section class="home-hero grid grid-cols-1 items-center gap-10 pb-10 pt-8 md:pb-16 md:pt-20 lg:-mt-4 lg:h-[601.293px] lg:grid-cols-[760.192px_279.808px] lg:grid-rows-[409.293px] lg:gap-16 lg:pb-20 lg:pt-28">
+        <div class="home-copy space-y-6 animate-window-in md:space-y-8 lg:self-center">
           <h1 class="font-display flex flex-col gap-1 tracking-tight select-none">
-            <span class="text-[20px] md:text-[24px] font-medium text-foreground/80 lowercase">
+            <span class="desktop-copy-muted text-[20px] font-medium lowercase md:text-[24px]">
               hi! this is
             </span>
 
-            <span class="name-highlight text-[40px] sm:text-[60px] md:text-[80px] font-black leading-[1.1] tracking-tighter my-2 w-fit inline-block whitespace-nowrap">
-              <span aria-hidden="true" class="text-foreground/40 font-normal">
-                𑣲⋆｡˚{" "}
-              </span>
-              bellechillguy
-              <span aria-hidden="true" class="text-foreground/40 font-normal">
-                {" "}
-                ˙⋆
+            <span class="home-name-highlight name-highlight my-2 w-full whitespace-nowrap text-[34px] min-[380px]:text-[40px] sm:text-[60px] md:text-[72px] lg:w-[720.419px]">
+              <span class="name-image-slot" data-node-id="2:2329">
+                <img
+                  alt="Bellechillguy"
+                  class="name-image"
+                  height={209}
+                  src="/images/bellechillguy.png"
+                  width={1306}
+                />
               </span>
             </span>
 
-            <span class="text-[20px] md:text-[24px] font-medium text-foreground/80 lowercase mt-1 md:ml-auto md:mr-24 w-fit">
+            <span class="desktop-copy-muted mt-1 w-fit text-[20px] font-medium lowercase md:ml-auto md:mr-24 md:text-[24px]">
               speaking!
             </span>
           </h1>
 
-          <p class="text-[16px] md:text-[18px] text-foreground/80 max-w-[50ch] leading-relaxed">
+          <p class="desktop-copy-muted max-w-[50ch] text-[16px] leading-relaxed md:text-[17px] lg:w-[754px] lg:max-w-none lg:text-[18px] lg:leading-[29.25px]">
             A System & Information Technology student who loves to explore{" "}
-            <strong class="font-bold text-foreground">Cyber Security</strong>,{" "}
-            <strong class="font-bold text-foreground">Networking</strong>,{" "}
-            <strong class="font-bold text-foreground">DevOps</strong>,{" "}
-            <strong class="font-bold text-foreground">Game Development</strong>, and{" "}
-            <strong class="font-bold text-foreground">Design</strong>.
+            <strong class="desktop-copy font-bold">Cyber Security</strong>,{" "}
+            <strong class="desktop-copy font-bold">Networking</strong>,{" "}
+            <strong class="desktop-copy font-bold">DevOps</strong>,{" "}
+            <strong class="desktop-copy font-bold">Game Development</strong>, and{" "}
+            <strong class="desktop-copy font-bold">Design</strong>.
           </p>
 
           <div class="flex flex-wrap items-center gap-4 pt-2">
             <Link
               href="/projects"
-              class="group inline-flex items-center justify-center gap-2 rounded-full bg-foreground px-6 py-3 text-[14px] font-bold text-background transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:scale-105 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              class="hero-primary group inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-[14px] font-bold transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:scale-105 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               See projects
               <span class="group-hover:translate-x-1 transition-transform duration-300 ease-out">
@@ -51,19 +52,24 @@ export default component$(() => {
 
             <Link
               href="/contact"
-              class="inline-flex items-center justify-center gap-2 rounded-full border border-border/80 bg-surface px-6 py-3 text-[14px] font-bold text-foreground transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:bg-muted hover:border-border hover:scale-105 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+              class="hero-secondary inline-flex items-center justify-center gap-2 rounded-full border px-6 py-3 text-[14px] font-bold shadow-sm transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:scale-105 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
               Say hi
             </Link>
           </div>
         </div>
 
-        <div class="relative flex flex-col sm:flex-row lg:flex-col items-center gap-6 lg:gap-4 justify-self-center lg:justify-self-end mt-8 lg:mt-0 animate-window-in">
-          <div class="transform hover:scale-[1.03] hover:rotate-2 transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] z-10">
-            <PhotoCard caption="𐙚 ˚🍰 ⋆｡˚ ᡣ𐭩" rotate={-4} src="/pinkie.gif" />
+        <div class="home-visual relative mt-6 flex w-full max-w-[315px] flex-col items-center justify-self-center gap-4 animate-window-in sm:flex-row lg:mt-0 lg:block lg:h-[409.293px] lg:w-[280px] lg:max-w-none lg:self-center">
+          <div class="home-photo z-10 w-[230px] transform transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:rotate-2 hover:scale-[1.03] sm:w-[245px] lg:absolute lg:left-0 lg:top-0 lg:w-[280px]">
+            <div class="dark:hidden">
+              <PhotoCard caption="𐙚 ˚🍰 ⋆｡˚ ᡣ𐭩" rotate={-4} src="/images/pinkie-pie.gif" />
+            </div>
+            <div class="hidden dark:block">
+              <PhotoCard caption="˚˖𓍢ִ໋ 🦇 ✧˚.🔮⋆" rotate={-4} src="/images/twilight-sparkle.gif" />
+            </div>
           </div>
 
-          <div class="transform hover:-translate-y-2 hover:-rotate-2 transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] lg:-mt-8 lg:-ml-12 z-20">
+          <div class="home-note z-20 transform transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-2 hover:-rotate-2 lg:absolute lg:left-[8px] lg:top-[366px]">
             <StickyNote rotate={4}>
               i'm a girl who feels <strong class="font-bold text-foreground">everything</strong>
             </StickyNote>
