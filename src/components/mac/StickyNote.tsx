@@ -7,7 +7,7 @@ export const StickyNote = component$(
 
     return (
       <aside
-        class="sticky-note inline-block px-4 py-3 text-[13px] leading-snug font-medium shadow-[var(--sh-2)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--sh-3)]"
+        class="sticky-note inline-block px-4 py-3 text-[13px] leading-snug font-medium text-[var(--sticky-ink)] shadow-[var(--sh-2)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--sh-3)]"
         style={{
           background: bg,
           borderTop: `2px solid ${stroke}`,
