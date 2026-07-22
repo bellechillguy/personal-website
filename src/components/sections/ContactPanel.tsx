@@ -65,7 +65,8 @@ export const ContactPanel = component$(() => {
                   border border-hairline
                   bg-white/80
                   transition-all duration-300
-                  group-hover:bg-foreground
+                  group-hover:bg-white
+                  group-hover:shadow-sh-1
                 "
               >
                 <Logo
