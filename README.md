@@ -1,6 +1,12 @@
 # 𝓑ellechillguy
 
-A personal portfolio presented as a responsive, macOS-inspired desktop. It brings together my projects, experience, technical interests, writing, resume, and contact links in one playful interface.
+Okie Dokie Lokie! Welcome to my personal portfolio website.
+
+I wanted to create a website that truly represents who I am, like my work and the things I care about. So, here we are.
+
+<img width="409.5" height="261" alt="Image" src="https://github.com/user-attachments/assets/6f2bed39-92ed-4c2b-93f9-2c276fa5c93f" />
+
+<img width="409.5" height="261" alt="Image" src="https://github.com/user-attachments/assets/6ba514ac-e78e-4caa-8f1e-b601413dc037" />
 
 **Live site:** [bellechillguy.vercel.app](https://bellechillguy.vercel.app)
 
