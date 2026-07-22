@@ -291,7 +291,7 @@ const MusicToggleButton = component$(() => {
 export const Dock = component$(() => {
   return (
     <nav
-      class="dock fixed bottom-3 sm:bottom-4 left-1/2 -translate-x-1/2 z-40 px-2 py-2 sm:px-3 sm:py-2.5 rounded-3xl bg-chrome/60 backdrop-blur-[20px] border border-hairline shadow-window flex items-end gap-1.5 sm:gap-2.5 max-w-[calc(100vw-16px)] overflow-x-auto scrollbar-none touch-pan-x"
+      class="dock fixed bottom-3 sm:bottom-[26px] left-1/2 -translate-x-1/2 z-40 px-2 py-2 sm:px-3 sm:py-2.5 rounded-3xl backdrop-blur-[20px] border border-white/55 shadow-window flex items-end gap-1.5 sm:gap-2.5 max-w-[calc(100vw-16px)] overflow-x-auto scrollbar-none touch-pan-x"
       onMouseMove$={(event, element) => {
         updateDockMagnification(element, event.clientX);
       }}
