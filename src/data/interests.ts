@@ -31,15 +31,15 @@ export const interests: InterestsData = {
   gallery: [
     {
       caption: "take me back",
-      src: "/interests/1.jpg",
+      src: "/images/interests/1.jpg",
     },
     {
       caption: "the perfect pair",
-      src: "/interests/2.jpg",
+      src: "/images/interests/2.jpg",
     },
     {
       caption: "touch the grass",
-      src: "/interests/3.jpg",
+      src: "/images/interests/3.jpg",
     },
   ],
 };

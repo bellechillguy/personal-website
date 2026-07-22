@@ -32,7 +32,7 @@ export const experiences: ExperienceEntry[] = [
   },
   {
     category: "Volunteer",
-    title: "Lead Operator — Bioskop AMI",
+    title: "Lead Operator - Bioskop AMI",
     org: "Aku Masuk ITB 2025",
     period: "Oct 2024 – Feb 2025 · 5 mo",
     description:
@@ -40,7 +40,7 @@ export const experiences: ExperienceEntry[] = [
   },
   {
     category: "Volunteer",
-    title: "Staff of Event Division — Chairman Election",
+    title: "Staff of Event Division - Chairman Election",
     org: "STEI-K ITB 2024",
     period: "Sep 2024 – Oct 2024 · 2 mo",
     description:

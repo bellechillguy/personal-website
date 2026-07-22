@@ -29,7 +29,7 @@ export const ExperiencePanel = component$(() => {
             <article class="rounded-[14px] border border-transparent p-4 -ml-4 transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:bg-sticky/40 group-hover:border-border/50 group-hover:shadow-sm">
               <div class="flex flex-col md:flex-row md:items-start justify-between gap-2 md:gap-4">
                 <div>
-                  <h3 class="font-display text-[17px] font-bold text-foreground leading-tight group-hover:text-accent-ink dark:group-hover:text-accent-strong transition-colors">
+                  <h3 class="font-display text-[17px] font-bold text-foreground leading-tight transition-colors group-hover:text-accent-ink">
                     {e.title}
                   </h3>
 
