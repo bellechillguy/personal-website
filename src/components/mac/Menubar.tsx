@@ -1,5 +1,6 @@
 import { component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import { Link } from "@builder.io/qwik-city";
+import { ThemePullCord } from "@/components/mac/ThemePullCord";
 
 const fmt = (d: Date) =>
   d.toLocaleString("en-US", {
@@ -32,7 +33,7 @@ export const Menubar = component$(() => {
 
   return (
     <header
-      class="
+      class="menubar
         fixed inset-x-0 top-0 z-50
         h-8 px-3
         flex items-center justify-between
@@ -41,12 +42,6 @@ export const Menubar = component$(() => {
         border-b
         shadow-sm
       "
-      style={{
-        background: "rgba(20,20,22,0.65)",
-        backdropFilter: "blur(18px) saturate(180%)",
-        borderColor: "rgba(255,255,255,0.08)",
-        color: "rgba(255,255,255,0.92)",
-      }}
     >
       <div class="flex items-center gap-1">
         <Link
@@ -100,17 +95,20 @@ export const Menubar = component$(() => {
         </nav>
       </div>
 
-      <div
-        class="
-          px-2.5 py-1
-          rounded-md
-          text-white/70
-          tabular-nums
-          hover:bg-white/10
-          transition
-        "
-      >
-        {now.value}
+      <div class="flex h-full items-start gap-0.5">
+        <div
+          class="
+            mt-0.5 px-2.5 py-1
+            rounded-md
+            text-white/75
+            tabular-nums whitespace-nowrap
+            hover:bg-white/10
+            transition
+          "
+        >
+          {now.value}
+        </div>
+        <ThemePullCord />
       </div>
     </header>
   );

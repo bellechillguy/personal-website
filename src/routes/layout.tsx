@@ -6,7 +6,7 @@ export default component$(() => {
   return (
     <>
       <Menubar />
-      <main class="min-h-screen pt-10 pb-32 px-4 md:px-8">
+      <main class="min-h-screen pt-14 pb-32 px-4 md:px-8">
         <Slot />
       </main>
       <Dock />
