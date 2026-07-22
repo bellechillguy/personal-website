@@ -4,9 +4,11 @@ import { MacWindow } from "@/components/mac/MacWindow";
 import { InterestsPanel } from "@/components/sections/InterestsPanel";
 
 export default component$(() => (
-  <MacWindow title="other-interests/">
-    <InterestsPanel />
-  </MacWindow>
+  <div class="md:-mt-6">
+    <MacWindow title="other-interests/">
+      <InterestsPanel />
+    </MacWindow>
+  </div>
 ));
 
 export const head: DocumentHead = {

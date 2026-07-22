@@ -1,25 +1,25 @@
 ---
-title: "The Phantom — Diamond | CTF Miscellaneous Write Up (FindIT UGM 2026)"
+title: "The Phantom - Diamond | CTF Miscellaneous Write Up (FindIT UGM 2026)"
 date: "2026-05-13"
 ---
 
 &emsp;We are given a customized Gemini AI as the attachment. I think it has something to do with prompt injection. I started the chat, and then looked in the way it thinks. It mentioned “PT-1412” and “PT1412”.
 
-![](/images/The-1.png)
+![](/images/projects/The-1.png)
 
 <br>
 
 &emsp;So, I input those strings into the next chat bubble, and this is their response:
 
-![](/images/The-2.png)
+![](/images/projects/The-2.png)
 
 <br>
 
 &emsp;Those clues pointed so much to **Tokyo Skytree.** I put the answer again in the next bubble chat.
 
-![](/images/The-3.png)
+![](/images/projects/The-3.png)
 
-![](/images/The-4.png)
+![](/images/projects/The-4.png)
 
 <br>
 
@@ -29,13 +29,13 @@ date: "2026-05-13"
 
 &emsp;After I tried so hard, I can conclude that the answer is **Musashi Sky Restaurant**!
 
-![](/images/The-5.png)
+![](/images/projects/The-5.png)
 
 <br>
 
 &emsp;I put those 3 words together and gave it back to the AI chat (with the format they wanted it to be), and… I got the flag!
 
-![](/images/The-6.png)
+![](/images/projects/The-6.png)
 
 ---
 

@@ -4,31 +4,28 @@ import { TechTag } from "@/components/icons/BrandIcons";
 
 export const TechStackPanel = component$(() => {
   return (
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
       {techStack.map((cat, index) => (
         <section
           key={cat.title}
-          class="flex flex-col rounded-[18px] border border-border bg-surface p-6 shadow-[var(--sh-1)] transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1 hover:shadow-lg animate-window-in"
+          class="panel-cyan flex flex-col rounded-[14px] border border-border p-5 shadow-[var(--sh-1)] transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1 hover:shadow-lg animate-window-in"
           style={{ animationDelay: `${index * 75}ms` }}
         >
-          <div class="flex items-center justify-between mb-6">
+          <div class="mb-4 flex items-center justify-between">
             <div class="flex items-center gap-3">
-              <div
-                class="w-1.5 h-5 rounded-full bg-foreground/20 dark:bg-foreground/40"
-                aria-hidden="true"
-              />
+              <div class="h-5 w-1.5 rounded-full bg-foreground/25" aria-hidden="true" />
 
-              <h2 class="font-display text-[18px] font-bold text-foreground tracking-tight">
+              <h2 class="font-display text-[17px] font-bold tracking-tight text-foreground">
                 {cat.title}
               </h2>
             </div>
 
-            <span class="rounded-full bg-muted border border-border/50 px-2.5 py-0.5 text-[11px] font-bold text-foreground/50 uppercase tracking-wider">
+            <span class="rounded-full border border-border/60 bg-white/75 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-foreground/55">
               {cat.items.length} tools
             </span>
           </div>
 
-          <ul class="flex flex-wrap gap-2.5">
+          <ul class="flex flex-wrap gap-2">
             {cat.items.map((it) => (
               <li
                 key={it.name}

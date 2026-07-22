@@ -2,33 +2,36 @@ import { PhotoCard } from "@/components/mac/PhotoCard";
 
 export function AboutPanel() {
   return (
-    <div class="grid grid-cols-1 md:grid-cols-[1fr_260px] gap-10 md:gap-14 items-center">
-      <div class="order-2 md:order-1 space-y-7">
-        <header class="space-y-2">
-          <h1 class="font-display flex flex-col gap-1 tracking-tight select-none">
-            <span class="text-[18px] md:text-[22px] font-medium text-foreground/80 lowercase">
+    <div class="grid grid-cols-1 items-center gap-9 md:grid-cols-[minmax(0,1fr)_230px] md:gap-14 lg:grid-cols-[578.2px_230px]">
+      <div class="order-2 flex flex-col items-start self-stretch md:order-1 md:h-[401.811px] md:justify-self-stretch">
+        <header class="w-full">
+          <h1 class="font-display flex w-full flex-col items-end gap-1 tracking-[-0.4px] select-none">
+            <span class="w-full text-[18px] font-medium lowercase leading-[29px] text-foreground/80 md:text-[22px] md:leading-[33px]">
               hi! this is
             </span>
 
-            <span class="name-highlight text-[38px] sm:text-[58px] md:text-[56px] font-black leading-[1.05] tracking-tighter my-2 w-fit inline-block whitespace-nowrap">
-              <span aria-hidden="true" class="text-foreground/40 font-normal">
-                𑣲⋆｡˚{" "}
-              </span>
-              bellechillguy
-              <span aria-hidden="true" class="text-foreground/40 font-normal">
-                {" "}
-                ˙⋆
+            <span class="flex w-full flex-col items-start py-2">
+              <span class="name-highlight about-name-highlight block w-full">
+                <span class="name-image-slot about-name-image-slot">
+                  <img
+                    alt="Bellechillguy"
+                    class="name-image"
+                    height={209}
+                    src="/images/bellechillguy.png"
+                    width={1306}
+                  />
+                </span>
               </span>
             </span>
 
-            <span class="text-[18px] md:text-[22px] font-medium text-foreground/80 lowercase mt-1 md:ml-auto md:mr-16 w-fit">
+            <span class="w-fit pt-1 pr-8 text-[18px] font-medium lowercase leading-[29px] text-foreground/80 md:pr-18 md:text-[22px] md:leading-[33px]">
               speaking
             </span>
           </h1>
         </header>
 
-        <div class="space-y-5 max-w-xl">
-          <p class="text-[15px] md:text-[16px] text-foreground/80 leading-relaxed">
+        <div class="w-full max-w-[576px] space-y-5 pt-9 pl-1 md:w-[512px]">
+          <p class="text-justify text-[14px] leading-[24px] text-foreground/80 md:text-[16px] md:leading-[26px]">
             I'm <strong class="font-semibold text-foreground">Nisrina</strong>, a{" "}
             <strong class="font-semibold text-foreground">System & Information Technology</strong>{" "}
             student at <strong class="font-semibold text-foreground">ITB</strong>. I build things
@@ -38,7 +41,7 @@ export function AboutPanel() {
             <em class="italic font-medium text-foreground">how systems work together</em>.
           </p>
 
-          <p class="text-[15px] md:text-[16px] text-foreground/80 leading-relaxed">
+          <p class="text-justify text-[14px] leading-[24px] text-foreground/80 md:text-[16px] md:leading-[26px]">
             Outside academics, I’m part of{" "}
             <strong class="font-semibold text-foreground">Aksantara ITB</strong> (Robotic Software
             Control), <strong class="font-semibold text-foreground">GIM ITB</strong> (Visual
@@ -46,28 +49,16 @@ export function AboutPanel() {
             <em class="italic">reading</em>, and <em class="italic">music</em>.
           </p>
         </div>
-
-        <div class="flex flex-wrap gap-2 pt-1">
-          <span class="tag-chip text-[12px] px-3 py-1 bg-muted border border-border/80 rounded-full font-medium transition-colors hover:border-border">
-            Bandung, ID
-          </span>
-
-          <span class="tag-chip text-[12px] px-3 py-1 bg-muted border border-border/80 rounded-full font-medium transition-colors hover:border-border">
-            ITB &apos;24
-          </span>
-
-          <span class="tag-chip text-[12px] px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 rounded-full font-medium text-emerald-600 dark:text-emerald-400">
-            open to collab
-          </span>
-        </div>
       </div>
 
-      <div class="order-1 md:order-2 justify-self-center md:justify-self-end">
-        <div class="group relative transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:scale-[1.03]">
-          <div class="absolute inset-3 rounded-2xl bg-accent/20 border border-accent/40 -z-10 rotate-6 transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:rotate-8 group-hover:scale-105" />
-
-          <PhotoCard src="/nisrina.jpg" caption="bellechillguy" rotate={-3} />
-        </div>
+      <div class="order-1 w-[220px] justify-self-center md:order-2 md:w-[260px] md:justify-self-end">
+        <PhotoCard
+          src="/images/nisrina.jpg"
+          caption="bellechillguy"
+          className="about-photo-card"
+          rotate={-3}
+          tone="accent"
+        />
       </div>
     </div>
   );

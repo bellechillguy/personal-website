@@ -138,10 +138,10 @@ def reconstruct(ct_data: bytes, seed: int, verbose: bool = True) -> bytes:
     last = plain_blocks[-1]
     if last == b"\x10" * 16:
         if verbose:
-            print("[+] PKCS padding confirmed — seed is correct!")
+            print("[+] PKCS padding confirmed - seed is correct!")
         plain_blocks = plain_blocks[:-1]
     else:
-        print("[!] Warning: last block is not PKCS padding — seed may be wrong")
+        print("[!] Warning: last block is not PKCS padding - seed may be wrong")
 
     return b"".join(plain_blocks)
 
@@ -162,7 +162,7 @@ def main():
 
     remainder = len(ct_data) % 16
     if remainder != 0:
-        print(f"[!] CT length not multiple of 16 (off by {remainder}) — trimming")
+        print(f"[!] CT length not multiple of 16 (off by {remainder}) - trimming")
         ct_data = ct_data[:len(ct_data) - remainder]
 
     seed = find_seed(ct_data)
@@ -180,7 +180,7 @@ def main():
         img.save(out_path)
         print(f"[+] Saved PNG → {out_path}")
     except ImportError:
-        print("[!] Pillow not installed — only PPM saved.")
+        print("[!] Pillow not installed - only PPM saved.")
     except Exception as e:
         print(f"[!] PNG conversion failed: {e}")
 
@@ -209,7 +209,7 @@ if __name__ == "__main__":
 
 &emsp;Run this script in your local (using venv). It will give you the flag in the `.png` output.
 
-![](/images/The-1.png)
+![](/images/projects/The-1.png)
 
 <br>
 

@@ -9,9 +9,9 @@ date: "2026-02-06"
 
 &emsp;Let’s unzip the file first.
 
-![](/images/Deadsick-1.png)
+![](/images/projects/Deadsick-1.png)
 
-![](/images/Deadsick-2.png)
+![](/images/projects/Deadsick-2.png)
 
 <br>
 

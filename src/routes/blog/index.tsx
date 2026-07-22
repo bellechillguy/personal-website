@@ -1,7 +1,13 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useComputed$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 import { Link, routeLoader$, type DocumentHead } from "@builder.io/qwik-city";
 import { MacWindow } from "@/components/mac/MacWindow";
 import { getAllPosts } from "@/data/blog";
+
+const dateFormatter = new Intl.DateTimeFormat("en", {
+  month: "short",
+  day: "numeric",
+  year: "numeric",
+});
 
 export const usePosts = routeLoader$(async () => {
   return getAllPosts();
@@ -9,40 +15,149 @@ export const usePosts = routeLoader$(async () => {
 
 export default component$(() => {
   const posts = usePosts();
+  const query = useSignal("");
+  const activeCategory = useSignal("All");
+  const searchInput = useSignal<HTMLInputElement>();
+
+  useVisibleTask$(({ cleanup }) => {
+    const handleShortcut = (event: KeyboardEvent) => {
+      if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
+        event.preventDefault();
+        searchInput.value?.focus();
+      }
+    };
+
+    window.addEventListener("keydown", handleShortcut);
+    cleanup(() => window.removeEventListener("keydown", handleShortcut));
+  });
+
+  const categories = useComputed$(() => [
+    "All",
+    ...Array.from(new Set(posts.value.map((post) => post.category))),
+  ]);
+
+  const filteredPosts = useComputed$(() => {
+    const normalizedQuery = query.value.trim().toLowerCase();
+
+    return posts.value.filter((post) => {
+      const matchesCategory =
+        activeCategory.value === "All" || post.category === activeCategory.value;
+      const matchesQuery =
+        !normalizedQuery ||
+        `${post.title} ${post.excerpt} ${post.category}`.toLowerCase().includes(normalizedQuery);
+
+      return matchesCategory && matchesQuery;
+    });
+  });
 
   return (
-    <MacWindow title="Blog" subtitle={`${posts.value.length} posts`} maxWidth="850px">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-2 md:p-4">
-        {posts.value.map((post, index) => (
-          <Link
-            key={post.slug}
-            href={`/blog/${encodeURIComponent(post.slug)}`}
-            class="group flex flex-col justify-between p-6 rounded-[18px] bg-sticky/40 border border-border shadow-[var(--sh-1)] transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background animate-window-in"
-            style={{ animationDelay: `${index * 75}ms` }}
-          >
-            <article class="flex flex-col h-full">
-              <div>
-                <h2 class="font-display font-bold text-[18px] mb-2 text-foreground group-hover:text-accent-ink dark:group-hover:text-accent-strong transition-colors duration-300">
-                  {post.title}
-                </h2>
-                <p class="text-[14.5px] text-foreground/75 leading-relaxed line-clamp-3">
-                  {post.excerpt}
-                </p>
-              </div>
+    <MacWindow
+      title="Blog"
+      subtitle={`${posts.value.length} notes & write-ups`}
+      maxWidth="980px"
+      bodyClass="blog-window-body"
+    >
+      <header class="blog-index-header">
+        <div class="blog-index-heading">
+          <h1 class="blog-index-title">
+            <span class="blog-index-title-initial">N</span>
+            <span class="blog-index-title-copy">otes from Underground</span>
+          </h1>
+        </div>
 
-              <div class="mt-auto pt-6 text-[13px] font-bold text-foreground/50 opacity-0 transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:opacity-100 group-hover:text-foreground flex items-center gap-1.5 mt-auto">
-                Read article
-                <span
-                  aria-hidden="true"
-                  class="transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:translate-x-1"
-                >
-                  →
-                </span>
-              </div>
-            </article>
-          </Link>
-        ))}
+        <div class="blog-search" role="search">
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none">
+            <circle cx="11" cy="11" r="6.5" stroke="currentColor" strokeWidth="1.8" />
+            <path d="m16 16 4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+          </svg>
+          <input
+            ref={searchInput}
+            type="search"
+            value={query.value}
+            aria-label="Search blog posts"
+            placeholder="Search articles…"
+            onInput$={(_, element) => {
+              query.value = element.value;
+            }}
+            onKeyDown$={(event, element) => {
+              if (event.key !== "Escape") return;
+              query.value = "";
+              element.blur();
+            }}
+          />
+        </div>
+      </header>
+
+      <div class="blog-filter-row">
+        <div class="blog-category-list" aria-label="Filter posts by topic">
+          {categories.value.map((category) => (
+            <button
+              key={category}
+              type="button"
+              class="blog-category-button"
+              data-active={activeCategory.value === category ? "true" : "false"}
+              aria-pressed={activeCategory.value === category}
+              onClick$={() => {
+                activeCategory.value = category;
+              }}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
+        <p class="blog-results-count" aria-live="polite">
+          {filteredPosts.value.length} {filteredPosts.value.length === 1 ? "article" : "articles"}
+        </p>
       </div>
+
+      {filteredPosts.value.length ? (
+        <div class="blog-card-grid">
+          {filteredPosts.value.map((post, index) => (
+            <Link
+              key={post.slug}
+              href={`/blog/${encodeURIComponent(post.slug)}`}
+              class="blog-card animate-window-in"
+              data-featured={
+                index === 0 && !query.value && activeCategory.value === "All" ? "true" : "false"
+              }
+              style={{ animationDelay: `${Math.min(index, 8) * 55}ms` }}
+            >
+              <article>
+                <div class="blog-card-meta">
+                  <span class="blog-card-category">{post.category}</span>
+                  <time dateTime={post.date}>{dateFormatter.format(new Date(post.date))}</time>
+                </div>
+
+                <h2>{post.title}</h2>
+                <p>{post.excerpt}</p>
+
+                <footer>
+                  <span>{post.readingMinutes} min read</span>
+                  <span class="blog-card-arrow" aria-hidden="true">
+                    Read <span>→</span>
+                  </span>
+                </footer>
+              </article>
+            </Link>
+          ))}
+        </div>
+      ) : (
+        <div class="blog-empty-state">
+          <span aria-hidden="true">⌕</span>
+          <h2>No matching notes</h2>
+          <p>Try another keyword or reset the selected topic.</p>
+          <button
+            type="button"
+            onClick$={() => {
+              query.value = "";
+              activeCategory.value = "All";
+            }}
+          >
+            Clear filters
+          </button>
+        </div>
+      )}
     </MacWindow>
   );
 });

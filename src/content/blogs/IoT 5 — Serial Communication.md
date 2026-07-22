@@ -1,5 +1,5 @@
 ---
-title: "IoT 5 — Serial Communication"
+title: "IoT 5 - Serial Communication"
 date: "2026-03-10"
 excerpt: "This time we’re stepping into the world of protocols, specifically I2C."
 ---
@@ -20,7 +20,7 @@ excerpt: "This time we’re stepping into the world of protocols, specifically I
 
 &emsp;This is the wiring configuration that I used (same as the project before this).
 
-![](/images/iot-5-1.png)
+![](/images/projects/iot-5-1.png)
 
 <br>
 
@@ -82,7 +82,7 @@ void loop() {
 
 &emsp;After uploading the code, open the Serial Monitor (set baud rate to **9600**). If your device is connected correctly, you'll see its address printed out. In my case, I got **0x77** for the BME280 sensor. If you see nothing, check your wiring first. Yep, I learned that the hard way 😅
 
-![](/images/iot-5-2.png)
+![](/images/projects/iot-5-2.png)
 
 ---
 
@@ -96,7 +96,7 @@ void loop() {
 
 &emsp;In this session, I changed the I2C pins to **SDA = 33** and **SCL = 32**. To do this, instead of calling `Wire.begin()`, we define a new `TwoWire` object and pass in our custom pins.
 
-![](/images/iot-5-3.png)
+![](/images/projects/iot-5-3.png)
 
 <br>
 
@@ -167,7 +167,7 @@ void printValues() {
 
 &emsp;TADAA!!! Here’s the result.
 
-![](/images/iot-5-4.png)
+![](/images/projects/iot-5-4.png)
 
 ---
 
@@ -253,7 +253,7 @@ void loop() {
 }
 ```
 
-![](/images/iot-5-6.png)
+![](/images/projects/iot-5-6.png)
 
 <br>
 

@@ -1,5 +1,5 @@
 ---
-title: "IoT 4 — Display & PWM"
+title: "IoT 4 - Display & PWM"
 date: "2026-03-05"
 excerpt: "I’m continuing my project, and this week we’re focusing on displays and actuators."
 ---
@@ -18,7 +18,7 @@ excerpt: "I’m continuing my project, and this week we’re focusing on display
 
 &emsp;Here’s the wiring I’m using:
 
-![](/images/iot-4-1.png)
+![](/images/projects/iot-4-1.png)
 
 <br>
 
@@ -26,13 +26,13 @@ excerpt: "I’m continuing my project, and this week we’re focusing on display
 
 &emsp;Next, let’s move on to the code in the Arduino IDE. First, open your Arduino IDE and go to **Sketch > Include Library > Manage Libraries**. The Library Manager should open.
 
-![](/images/iot-4-2.png)
+![](/images/projects/iot-4-2.png)
 
 <br>
 
 &emsp;The Adafruit library for the OLED display comes with several functions for writing text. I’ll write **"Hello World"** in it as an example. This is the code I’m using.
 
-![](/images/iot-4-3.png)
+![](/images/projects/iot-4-3.png)
 
 <br>
 
@@ -42,7 +42,7 @@ excerpt: "I’m continuing my project, and this week we’re focusing on display
 
 &emsp;After uploading the code, this is what you’ll get in the OLED:
 
-![](/images/iot-4-4.png)
+![](/images/projects/iot-4-4.png)
 
 <br>
 
@@ -52,13 +52,13 @@ excerpt: "I’m continuing my project, and this week we’re focusing on display
 
 &emsp;This is the Arduino code I used:
 
-![](/images/iot-4-6.png)
+![](/images/projects/iot-4-6.png)
 
 <br>
 
 &emsp;Yeah, done!!! Here’s the result.
 
-![](/images/iot-4-7.png)
+![](/images/projects/iot-4-7.png)
 
 ---
 
@@ -72,13 +72,13 @@ excerpt: "I’m continuing my project, and this week we’re focusing on display
 
 &emsp;Here’s the wiring configuration of mine.
 
-![](/images/iot-4-8.png)
+![](/images/projects/iot-4-8.png)
 
 <br>
 
 &emsp;This is the code I used.
 
-![](/images/iot-4-9.png)
+![](/images/projects/iot-4-9.png)
 
 <br>
 

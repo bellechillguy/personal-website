@@ -31,9 +31,9 @@ export const ContactPanel = component$(() => {
             class="
               group relative overflow-hidden
               flex flex-col justify-between
-              rounded-2xl
+              rounded-[14px]
               border border-border
-              bg-surface
+              panel-yellow
               p-5
               shadow-sh-1
               transition-all duration-300
@@ -49,7 +49,7 @@ export const ContactPanel = component$(() => {
             <div
               class="
                 absolute inset-x-0 top-0 h-1
-                bg-sticky
+                bg-pink
                 opacity-0
                 transition-opacity duration-300
                 group-hover:opacity-100
@@ -63,9 +63,9 @@ export const ContactPanel = component$(() => {
                   items-center justify-center
                   rounded-sm
                   border border-hairline
-                  bg-chrome
+                  bg-white/80
                   transition-all duration-300
-                  group-hover:bg-bar
+                  group-hover:bg-foreground
                 "
               >
                 <Logo
@@ -125,7 +125,7 @@ export const ContactPanel = component$(() => {
                   items-center
                   rounded-full
                   border border-hairline
-                  bg-chrome
+                  bg-white/80
                   px-3 py-1
                   text-[10px]
                   font-bold
@@ -134,7 +134,7 @@ export const ContactPanel = component$(() => {
                   text-ink-2
                   transition-all duration-300
 
-                  group-hover:bg-sticky
+                  group-hover:bg-white
                   group-hover:text-accent-ink
                   group-hover:border-sticky
                 "

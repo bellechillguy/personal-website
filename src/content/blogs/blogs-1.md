@@ -11,7 +11,7 @@ date: "2025-08-02"
 
 &emsp;In this challenge, we are only given the website <http://34.50.98.72:9001>.
 
-![](/images/WebIntro-1.png)
+![](/images/projects/WebIntro-1.png)
 
 <br>
 
@@ -19,7 +19,7 @@ date: "2025-08-02"
 
 &emsp;After doing this, I immediately got the flag.
 
-![](/images/WebIntro-2.png)
+![](/images/projects/WebIntro-2.png)
 
 ---
 

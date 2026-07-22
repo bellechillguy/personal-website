@@ -1,87 +1,102 @@
 # 𝓑ellechillguy
 
-Welcome to my personal portfolio website.
+A personal portfolio presented as a responsive, macOS-inspired desktop. It brings together my projects, experience, technical interests, writing, resume, and contact links in one playful interface.
 
-I wanted to create a website that truly represents who I am, like my work and the things I care about. So, here we are.
+**Live site:** [bellechillguy.vercel.app](https://bellechillguy.vercel.app)
 
-![image](https://github.com/user-attachments/assets/9fc79a07-1be8-4e73-b80e-b0b97c8df959)
+## Features
 
-Live Demo: [bellechillguy.vercel.app](https://bellechillguy.vercel.app)
+- Responsive macOS-style menubar, windows, photo cards, sticky notes, and dock
+- Light and dark themes with an accessible pull-cord control
+- Theme persistence through `localStorage`, system-preference fallback, and an inline boot script that prevents an incorrect-theme flash
+- Pinkie Pie and Twilight Sparkle cutie-mark rain during theme changes, with reduced-motion support
+- Portfolio pages for About, Projects, Tech Stack, Experience, Interests, Contact, and Resume
+- Markdown-powered blog with search, category filters, automatic excerpts, reading-time estimates, and reading progress
+- Resume preview and download
+- Dock music player backed by local audio files
 
-## What You Can Find Here
+## Tech Stack
 
-- A home page with a short intro and visual notes
-- About, experience, projects, and tech stack pages
-- A Markdown-powered blog for write-ups, notes, and longer writing
-- A resume page with a PDF preview and download link
-- Contact links for GitHub, LinkedIn, and Medium
-- A small interests page with reading, music, and gallery content
-- A dock music button that plays a shuffled local playlist
-
-## Built With
-
-This version of the site is built with:
-
-- Qwik
-- Qwik City
+- [Qwik](https://qwik.dev/) and Qwik City
 - TypeScript
-- Vite
-- Tailwind CSS v4
-- gray-matter
-- marked
-- zod
+- Vite 7
+- Tailwind CSS 4 and custom CSS
+- [marked](https://marked.js.org/) for Markdown rendering
+- Vercel Edge adapter
 
-The visual system is mostly custom CSS and Tailwind utilities, shaped around a soft macOS-like interface.
+## Local Development
 
-## Getting Started
+### Prerequisites
 
-Install dependencies:
+- Node.js `^20.19.0` or `>=22.12.0`
+- npm
+
+No environment variables are required to run the site locally.
+
+### Setup
+
+Install the locked dependency versions:
 
 ```bash
-npm install
+npm ci
 ```
 
-Start the local development server:
+Start the development server:
 
 ```bash
 npm run dev
 ```
 
-By default, Vite is configured to run on:
+The app is available at [http://127.0.0.1:8080](http://127.0.0.1:8080). If the port is unavailable, Vite may select another port.
 
-```text
-http://127.0.0.1:8080/
-```
+## Available Scripts
 
-If that port is busy, Vite may choose another nearby port.
+| Command                  | Purpose                                                  |
+| ------------------------ | -------------------------------------------------------- |
+| `npm run dev`            | Start the local SSR development server                   |
+| `npm run build`          | Build both the client and Vercel Edge server bundles     |
+| `npm run build.client`   | Build only the browser bundle                            |
+| `npm run build.server`   | Build only the Vercel Edge server bundle                 |
+| `npm run build:dev`      | Create a development-mode Vite build                     |
+| `npm run preview`        | Preview a production build locally                       |
+| `npm run lint`           | Run ESLint                                               |
+| `npm run format`         | Format the repository with Prettier; this modifies files |
+| `npm run deploy:preview` | Build and create a Vercel preview deployment             |
+| `npm run deploy:prod`    | Build and deploy to Vercel production                    |
 
-Build the site:
-
-```bash
-npm run build
-```
-
-Preview the production build:
-
-```bash
-npm run preview
-```
-
-Run linting:
+Before opening a pull request, run:
 
 ```bash
 npm run lint
+npm run build
 ```
 
-Format the code:
+## Project Structure
 
-```bash
-npm run format
+```text
+src/
+  assets/              Imported app icons and project artwork
+  components/
+    icons/             System and technology icons
+    mac/               Menubar, dock, windows, cards, and theme control
+    sections/          Reusable portfolio page sections
+  content/
+    blogs/             Markdown blog posts
+  data/                Portfolio, experience, project, and interest data
+  lib/                 Markdown and utility helpers
+  routes/              Qwik City routes
+public/
+  images/
+    cutie-marks/       Pull-cord and theme-rain SVG assets
+    interests/         Interest gallery images
+    projects/          Blog and project documentation images
+  music/               Local dock-player audio
+  resume.pdf           Resume preview and download source
 ```
 
-## Content
+## Content and Assets
 
-Most of the portfolio content lives in simple TypeScript data files:
+Portfolio copy and structured content primarily live in:
 
 ```text
 src/data/projects.ts
@@ -91,116 +106,62 @@ src/data/socials.ts
 src/data/interests.ts
 ```
 
-Blog posts live here:
+Imported UI and project-card assets live in `src/assets/`. Files that must be served directly by URL belong in `public/` and should be referenced from the site root, for example:
 
 ```text
-src/content/blogs/
+/images/projects/example.png
+/images/cutie-marks/pinkie-pie.svg
 ```
 
-Each blog post is a Markdown file with front matter for the title, date, and excerpt. The blog loader reads those files, parses the metadata, and renders the Markdown into the blog pages.
+### Adding a Blog Post
 
-Static files live in `public/`, including:
-
-- resume PDF
-- blog images
-- interest gallery images
-- local music files used by the dock player
-
-Project screenshots and app-style icons live in `src/assets/`.
-
-## Project Structure
-
-```text
-src/
-  assets/          Images and icon assets imported by the app
-  components/
-    icons/         App icons and technology icons
-    mac/           Menubar, dock, window, note, and desktop-style UI pieces
-    sections/      Reusable page sections
-  content/
-    blogs/         Markdown blog posts
-  data/            Portfolio content sources
-  lib/             Small utilities for markdown and error handling
-  routes/          Qwik City routes
-public/
-  images/          Blog and page images served as static files
-  interests/       Gallery photos
-  music/           Local playlist files
-  resume.pdf       Resume preview and download file
-```
-
-## Routes
-
-```text
-/                 Home
-/about            About
-/projects         Projects
-/tech-stack       Tech stack
-/experience       Experience
-/blog             Blog index
-/blog/:slug       Blog post detail
-/interests        Interests
-/contact          Contact
-/resume           Resume
-/sitemap.xml      Generated sitemap
-```
-
-## Notes For Future Me
-
-When adding a new blog post, put the Markdown file in `src/content/blogs/` and make sure it has front matter like this:
+Create a Markdown file in `src/content/blogs/` with front matter:
 
 ```md
 ---
-title: "Post Title"
+title: "Post title"
 date: "2026-07-08"
-excerpt: "A short summary for the blog card."
+excerpt: "An optional summary for the blog card."
 ---
+
+Post content starts here.
 ```
 
-When adding a new song, place the file in `public/music/` and add its path to the playlist in `src/components/mac/Dock.tsx`.
+The excerpt is generated from the content when omitted. The blog loader also infers a category from the title and calculates reading time automatically.
 
-When updating portfolio content, start with the files in `src/data/`. The pages are mostly just rendering those data sources.
+### Adding Music
 
-## Vercel Edge
+Place the audio file in `public/music/`, then add its root-relative path to the playlist in `src/components/mac/Dock.tsx`.
 
-This starter site is configured to deploy to [Vercel Edge Functions](https://vercel.com/docs/concepts/functions/edge-functions), which means it will be rendered at an edge location near to your users.
+## Routes
 
-## Installation
+| Route          | Page              |
+| -------------- | ----------------- |
+| `/`            | Home              |
+| `/about`       | About             |
+| `/projects`    | Projects          |
+| `/tech-stack`  | Tech Stack        |
+| `/experience`  | Experience        |
+| `/blog`        | Blog index        |
+| `/blog/:slug`  | Blog post         |
+| `/interests`   | Interests         |
+| `/contact`     | Contact           |
+| `/resume`      | Resume            |
+| `/sitemap.xml` | Generated sitemap |
 
-The adaptor will add a new `vite.config.ts` within the `adapters/` directory, and a new entry file will be created, such as:
+## Deployment
 
-```
-└── adapters/
-    └── vercel-edge/
-        └── vite.config.ts
-└── src/
-    └── entry.vercel-edge.tsx
-```
+The repository includes a Vercel Edge adapter and `vercel.json`. Authenticate the Vercel CLI before using the deployment scripts:
 
-Additionally, within the `package.json`, the `build.server` script will be updated with the Vercel Edge build.
-
-## Production build
-
-To build the application for production, use the `build` command, this command will automatically run `npm run build.server` and `npm run build.client`:
-
-```shell
-npm run build
-```
-
-[Read the full guide here](https://github.com/QwikDev/qwik/blob/main/starters/adapters/vercel-edge/README.md)
-
-## Dev deploy
-
-To deploy the application for development:
-
-```shell
-npm run deploy
+```bash
+npx vercel login
+npm run deploy:preview
 ```
 
-Notice that you might need a [Vercel account](https://docs.Vercel.com/get-started/) in order to complete this step!
+Deploy the production build with:
 
-## Production deploy
+```bash
+npm run deploy:prod
+```
 
-The project is ready to be deployed to Vercel. However, you will need to create a git repository and push the code to it.
-
-You can [deploy your site to Vercel](https://vercel.com/docs/concepts/deployments/overview) either via a Git provider integration or through the Vercel CLI.
+Vercel can also deploy automatically from the connected Git repository.

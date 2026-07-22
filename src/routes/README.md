@@ -1,21 +1,18 @@
-# Routes
+# Qwik City Routes
 
-TanStack Start uses **file-based routing**. Every `.tsx` file in this directory
-is a route. Do **not** create `src/pages/`, `src/routes/_app/index.tsx`, or
-`app/layout.tsx` — those are Next.js / Remix conventions. The only root layout
-is `src/routes/__root.tsx`.
+This directory uses [Qwik City file-based routing](https://qwik.dev/docs/routing/). Route folders map to URL segments, and an `index.tsx` file renders that route.
 
-## Conventions
+## Conventions Used in This Project
 
-| File                     | URL                                                     |
-| ------------------------ | ------------------------------------------------------- |
-| `index.tsx`              | `/`                                                     |
-| `about.tsx`              | `/about`                                                |
-| `users/index.tsx`        | `/users`                                                |
-| `users/$id.tsx`          | `/users/:id` (dynamic — bare `$`, no curly braces)      |
-| `posts/{-$category}.tsx` | `/posts/:category?` (optional segment)                  |
-| `files/$.tsx`            | `/files/*` (splat — read via `_splat` param, never `*`) |
-| `_layout.tsx`            | layout route (renders children via `<Outlet />`)        |
-| `__root.tsx`             | app shell — wraps every page; preserve `<Outlet />`     |
+| File                    | URL            | Purpose                         |
+| ----------------------- | -------------- | ------------------------------- |
+| `index.tsx`             | `/`            | Home page                       |
+| `about/index.tsx`       | `/about`       | Static route                    |
+| `blog/index.tsx`        | `/blog`        | Blog index                      |
+| `blog/[slug]/index.tsx` | `/blog/:slug`  | Dynamic blog-post route         |
+| `sitemap.xml/index.ts`  | `/sitemap.xml` | XML endpoint                    |
+| `layout.tsx`            | all pages      | Shared menubar, dock, and shell |
 
-`routeTree.gen.ts` is auto-generated. Don't edit it by hand.
+Use Qwik City's `<Slot />` in `layout.tsx` to render the active child route. Route data should be loaded with `routeLoader$`, and page metadata can be exported with `DocumentHead`.
+
+Keep route-specific presentation in the route or a component under `src/components/`. Shared portfolio content belongs in `src/data/`, while Markdown blog posts belong in `src/content/blogs/`.

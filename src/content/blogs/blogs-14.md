@@ -75,7 +75,7 @@ print("[+] Flag:", flag.decode())
 
 &emsp;Run in your local virtual environment, and you’ll get the flag.
 
-![](/images/I-1.png)
+![](/images/projects/I-1.png)
 
 <br>
 
