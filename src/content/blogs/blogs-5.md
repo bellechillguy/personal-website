@@ -5,9 +5,9 @@ date: "2025-08-02"
 
 &emsp;In this challenge, we’re given a file named **`chall`**. To open it, you’ll need the Ghidra application (or something similar like Binary Ninja). Then, find the **Symbol Tree** section on the left and expand the **export** section. You’ll find the **A_VALS**, **B_VALS**, **N_VALS**, and **CORRECT_HASHES** sections. Then, hover your cursor over the hexadecimal section.
 
-![](/images/revintro-1.png)
+![](/images/projects/revintro-1.png)
 
-![](/images/revintro-2.png)
+![](/images/projects/revintro-2.png)
 
 <br>
 
@@ -15,15 +15,15 @@ date: "2025-08-02"
 
 &emsp;After that, I entered the resulting hexadecimal value into the following solver:
 
-![](/images/revintro-3.png)
+![](/images/projects/revintro-3.png)
 
-![](/images/revintro-4.png)
+![](/images/projects/revintro-4.png)
 
 <br>
 
 &emsp;Finally, the flag was obtained.
 
-![](/images/revintro-5.png)
+![](/images/projects/revintro-5.png)
 
 <br>
 

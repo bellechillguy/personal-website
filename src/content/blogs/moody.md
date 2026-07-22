@@ -1,12 +1,12 @@
 ---
-title: "Moody — Development of a Role-Based Mental Health Platform Using Dockerized VPS Infrastructure"
+title: "Moody - Development of a Role-Based Mental Health Platform Using Dockerized VPS Infrastructure"
 date: "2026-06-01"
 excerpt: "This document describes the development of Moody’s second milestone, expanding the platform from a publicly accessible frontend into a fully interactive system equipped with authentication, role-based access control, a self-managed database, and a functional backend."
 ---
 
 ---
 
-# **CHAPTER I — INTRODUCTION**
+# **CHAPTER I - INTRODUCTION**
 
 <br>
 
@@ -48,13 +48,13 @@ excerpt: "This document describes the development of Moody’s second milestone,
 
 &emsp;Moody’s second milestone is built using the following technology stack:
 
-![](/images/Moody-1.png)
+![](/images/projects/Moody-1.png)
 
 **Table 1.3.** Technology Stack
 
 ---
 
-# **CHAPTER II — TASK SPECIFICATION**
+# **CHAPTER II - TASK SPECIFICATION**
 
 <br>
 
@@ -64,7 +64,7 @@ excerpt: "This document describes the development of Moody’s second milestone,
 
 &emsp;Moody implements a three-tier role system to ensure that each user can only access features relevant to their responsibilities.
 
-![](/images/Moody-2.png)
+![](/images/projects/Moody-2.png)
 
 **Table 2.1.** Role System
 
@@ -72,7 +72,7 @@ excerpt: "This document describes the development of Moody’s second milestone,
 
 &emsp;Figure 2.1.1 shows the login interface used by all platform roles to authenticate into the system.
 
-![](/images/Moody-3.png)
+![](/images/projects/Moody-3.png)
 
 **Figure 2.1.1.** Moody Login Page
 
@@ -88,7 +88,7 @@ excerpt: "This document describes the development of Moody’s second milestone,
 
 &emsp;Figure 2.1.2 illustrates the registration interface where users may create accounts and optionally upload profile avatars before awaiting superadmin approval.
 
-![](/images/Moody-4.png)
+![](/images/projects/Moody-4.png)
 
 **Figure 2.1.2.** Moody Registration Page
 
@@ -96,7 +96,7 @@ excerpt: "This document describes the development of Moody’s second milestone,
 
 &emsp;Users whose accounts are rejected receive a specific rejection message during login, while pending users are informed that their account is still under review.
 
-![](/images/Moody-5.png)
+![](/images/projects/Moody-5.png)
 
 **Figure 2.1.3.** Moody Login Validation Message
 
@@ -108,11 +108,11 @@ excerpt: "This document describes the development of Moody’s second milestone,
 
 &emsp;Figure 2.1.4 presents the superadmin dashboard used to review pending registrations and monitor overall platform statistics.
 
-![](/images/Moody-6.png)
+![](/images/projects/Moody-6.png)
 
-![](/images/Moody-7.png)
+![](/images/projects/Moody-7.png)
 
-![](/images/Moody-8.png)
+![](/images/projects/Moody-8.png)
 
 **Figure 2.1.4.** Superadmin Dashboard and User Approval Interface
 
@@ -155,7 +155,7 @@ excerpt: "This document describes the development of Moody’s second milestone,
 
 &emsp;Figure 2.2.1 illustrates the overall deployment and infrastructure architecture of the Moody platform, including Docker containerization, persistent storage volumes, Cloudflare tunneling, and external API integration.
 
-![](/images/Moody-9.png)
+![](/images/projects/Moody-9.png)
 
 **Figure 2.2.1.** Moody System Architecture Diagram
 
@@ -181,7 +181,7 @@ excerpt: "This document describes the development of Moody’s second milestone,
 
 &emsp;Stores all registered platform accounts.
 
-![](/images/Moody-10.png)
+![](/images/projects/Moody-10.png)
 
 **Table 2.2.1.** users Data Type
 
@@ -189,7 +189,7 @@ excerpt: "This document describes the development of Moody’s second milestone,
 
 &emsp;Figure 2.2.2.1 presents the SQLite database structure of `users` used by the platform during deployment and runtime.
 
-![](/images/Moody-11.png)
+![](/images/projects/Moody-11.png)
 
 **Figure 2.2.2.1.** SQLite `Users` Structure Preview
 
@@ -203,7 +203,7 @@ excerpt: "This document describes the development of Moody’s second milestone,
 
 &emsp;Stores daily mood journals submitted by users.
 
-![](/images/Moody-12.png)
+![](/images/projects/Moody-12.png)
 
 **Table 2.2.2.** mood_entries Data Type
 
@@ -211,7 +211,7 @@ excerpt: "This document describes the development of Moody’s second milestone,
 
 &emsp;Figure 2.2.2.2 presents the SQLite database structure of `mood_entries` used by the platform during deployment and runtime.
 
-![](/images/Moody-13.png)
+![](/images/projects/Moody-13.png)
 
 **Figure 2.2.2.2.** SQLite `mood_entries` Structure Preview
 
@@ -225,7 +225,7 @@ excerpt: "This document describes the development of Moody’s second milestone,
 
 &emsp;Stores wellness content published by psychologists.
 
-![](/images/Moody-14.png)
+![](/images/projects/Moody-14.png)
 
 **Table 2.2.3.** content Data Type
 
@@ -233,7 +233,7 @@ excerpt: "This document describes the development of Moody’s second milestone,
 
 &emsp;Figure 2.2.2.3 presents the SQLite database structure of `content` used by the platform during deployment and runtime.
 
-![](/images/Moody-15.png)
+![](/images/projects/Moody-15.png)
 
 **Figure 2.2.2.3.** SQLite `content` Structure Preview
 
@@ -247,7 +247,7 @@ excerpt: "This document describes the development of Moody’s second milestone,
 
 &emsp;Tracks bookmarked content.
 
-![](/images/Moody-16.png)
+![](/images/projects/Moody-16.png)
 
 **Table 2.2.4.** content_saves Data Type
 
@@ -255,7 +255,7 @@ excerpt: "This document describes the development of Moody’s second milestone,
 
 &emsp;Figure 2.2.2.4 presents the SQLite database structure of `content_saves` used by the platform during deployment and runtime.
 
-![](/images/Moody-17.png)
+![](/images/projects/Moody-17.png)
 
 **Figure 2.2.2.4.** SQLite `content_saves` Structure Preview
 
@@ -304,7 +304,7 @@ excerpt: "This document describes the development of Moody’s second milestone,
 
 &emsp;Figure 2.3.1 illustrates the interaction sequence between psychologists and users during content publishing, browsing, and bookmarking activities.
 
-![](/images/Moody-18.png)
+![](/images/projects/Moody-18.png)
 
 **Figure 2.3.1.** Interaction Flow Between Psychologist and User
 
@@ -312,9 +312,9 @@ excerpt: "This document describes the development of Moody’s second milestone,
 
 &emsp;Figure 2.3.2 shows the interface used by psychologists to publish wellness content and upload supporting attachments.
 
-![](/images/Moody-19.png)
+![](/images/projects/Moody-19.png)
 
-![](/images/Moody-20.png)
+![](/images/projects/Moody-20.png)
 
 **Figure 2.3.2.** Psychologist Content Publishing Interface
 
@@ -322,9 +322,9 @@ excerpt: "This document describes the development of Moody’s second milestone,
 
 &emsp;Figure 2.3.3 presents the user content feed interface with bookmarking functionality.
 
-![](/images/Moody-21.png)
+![](/images/projects/Moody-21.png)
 
-![](/images/Moody-22.png)
+![](/images/projects/Moody-22.png)
 
 **Figure 2.3.3.** User Content Feed and Bookmark Feature
 
@@ -369,7 +369,7 @@ excerpt: "This document describes the development of Moody’s second milestone,
 
 &emsp;Figure 2.3.4 illustrates the complete interaction flow for mood logging, image upload validation, database persistence, and rule-based insight generation.
 
-![](/images/Moody-23.png)
+![](/images/projects/Moody-23.png)
 
 **Figure 2.3.4.** Mood Logging and Rule-Based Insight Flow
 
@@ -377,7 +377,7 @@ excerpt: "This document describes the development of Moody’s second milestone,
 
 &emsp;Figure 2.3.5 shows the daily mood journaling interface used by users to record emotional conditions and upload optional images.
 
-![](/images/Moody-24.png)
+![](/images/projects/Moody-24.png)
 
 **Figure 2.3.5.** Daily Mood Journaling Interface
 
@@ -385,7 +385,7 @@ excerpt: "This document describes the development of Moody’s second milestone,
 
 &emsp;Figure 2.3.6 presents the analytics dashboard displaying mood statistics and generated rule-based insights.
 
-![](/images/Moody-25.png)
+![](/images/projects/Moody-25.png)
 
 **Figure 2.3.6.** Mood Analytics and Insight Dashboard
 
@@ -414,7 +414,7 @@ excerpt: "This document describes the development of Moody’s second milestone,
 
 &emsp;Figure 2.3.7 illustrates how psychologists retrieve aggregated patient mood statistics and detailed emotional history from the backend system.
 
-![](/images/Moody-26.png)
+![](/images/projects/Moody-26.png)
 
 **Figure 2.3.7.** Psychologist Patient Monitoring Flow
 
@@ -422,7 +422,7 @@ excerpt: "This document describes the development of Moody’s second milestone,
 
 &emsp;Figure 2.3.8 shows the patient monitoring dashboard used by psychologists to observe user mood summaries and recent activity.
 
-![](/images/Moody-27.png)
+![](/images/projects/Moody-27.png)
 
 **Figure 2.3.8.** Patient Monitoring Dashboard
 
@@ -430,7 +430,7 @@ excerpt: "This document describes the development of Moody’s second milestone,
 
 &emsp;Figure 2.3.9 presents the detailed patient analytics page containing historical mood records and statistical summaries.
 
-![](/images/Moody-28.png)
+![](/images/projects/Moody-28.png)
 
 **Figure 2.3.9.** Patient Mood Detail Interface
 
@@ -450,7 +450,7 @@ excerpt: "This document describes the development of Moody’s second milestone,
 
 **Figure 2.4.1.** Main Platform System Flow
 
-![](/images/Moody-29.png)
+![](/images/projects/Moody-29.png)
 
 **Table 2.4.1.** Platform Functionalities
 
@@ -484,7 +484,7 @@ excerpt: "This document describes the development of Moody’s second milestone,
 
 &emsp;Figure 2.5.1 shows the real-time patient monitoring capability available to psychologist accounts.
 
-![](/images/Moody-30.png)
+![](/images/projects/Moody-30.png)
 
 **Figure 2.5.1.** Psychologist Dashboard with Real-Time Mood Monitoring
 
@@ -529,7 +529,7 @@ excerpt: "This document describes the development of Moody’s second milestone,
 
 &emsp;Figure 2.5.2 illustrates the mood selection interface using emotionally expressive labels rather than purely numerical scales.
 
-![](/images/Moody-31.png)
+![](/images/projects/Moody-31.png)
 
 **Figure 2.5.2.** Empathetic Mood Label Design
 
@@ -549,7 +549,7 @@ excerpt: "This document describes the development of Moody’s second milestone,
 
 &emsp;Figure 2.5.3 shows the motivational quote component displayed on the platform dashboard through ZenQuotes API integration.
 
-![](/images/Moody-32.png)
+![](/images/projects/Moody-32.png)
 
 **Figure 2.5.3.** Motivational Quote Integration
 
@@ -574,7 +574,7 @@ excerpt: "This document describes the development of Moody’s second milestone,
 
 &emsp;Figure 2.6.1 shows the persistent Docker volumes used for SQLite database and uploaded file storage.
 
-![](/images/Moody-33.png)
+![](/images/projects/Moody-33.png)
 
 **Figure 2.6.1.** Docker Persistent Volumes
 
@@ -590,7 +590,7 @@ excerpt: "This document describes the development of Moody’s second milestone,
 
 <br>
 
-![](/images/Moody-34.png)
+![](/images/projects/Moody-34.png)
 
 **Table 2.6.1.** Container Components
 
@@ -618,7 +618,7 @@ docker compose up -d
 
 &emsp;Figure 2.6.2 presents the running Moody container during deployment inside the VPS environment.
 
-![](/images/Moody-35.png)
+![](/images/projects/Moody-35.png)
 
 **Figure 2.6.2.** Docker Container Deployment
 
@@ -630,13 +630,13 @@ docker compose up -d
 
 &emsp;Figure 2.6.3 presents the publicly accessible Moody deployment hosted through aaPanel and Cloudflare tunneling.
 
-![](/images/Moody-36.png)
+![](/images/projects/Moody-36.png)
 
 **Figure 2.6.3.** Public VPS Deployment Environment
 
 ---
 
-# **CHAPTER III — SUBMISSION DETAILS**
+# **CHAPTER III - SUBMISSION DETAILS**
 
 <br>
 
@@ -652,7 +652,7 @@ docker compose up -d
 
 &emsp;Figure 3.1 presents the publicly accessible Moody platform.
 
-![](/images/Moody-37.png)
+![](/images/projects/Moody-37.png)
 
 **Figure 3.1.** Public Platform Screenshot
 

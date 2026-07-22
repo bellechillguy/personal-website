@@ -7,13 +7,13 @@ date: "2025-08-02"
 
 &emsp;To find the required flag, essentially, we sent the payload and ROP using the following Python code:
 
-![](/images/pwnintro-1.png)
+![](/images/projects/pwnintro-1.png)
 
 <br>
 
 &emsp;In the end, I got the flag.
 
-![](/images/pwnintro-2.png)
+![](/images/projects/pwnintro-2.png)
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "IoT 6 — MQTT"
+title: "IoT 6 - MQTT"
 date: "2026-04-16"
 excerpt: "MQTT is a lightweight, publish–subscribe, machine-to-machine network protocol for message queuing"
 ---
@@ -16,13 +16,13 @@ excerpt: "MQTT is a lightweight, publish–subscribe, machine-to-machine network
 
 <br>
 
-![](/images/iot-6-1.png)
+![](/images/projects/iot-6-1.png)
 
 Installing MQTT Explorer in App Store.
 
 <br>
 
-![](/images/iot-6-2.png)
+![](/images/projects/iot-6-2.png)
 
 Installing Wireshark on their official website.
 
@@ -38,7 +38,7 @@ Installing Wireshark on their official website.
 
 <br>
 
-![](/images/iot-6-3.png)
+![](/images/projects/iot-6-3.png)
 
 <br>
 
@@ -46,7 +46,7 @@ Installing Wireshark on their official website.
 
 <br>
 
-![](/images/iot-6-4.png)
+![](/images/projects/iot-6-4.png)
 
 ---
 
@@ -56,7 +56,7 @@ Installing Wireshark on their official website.
 
 <br>
 
-![](/images/iot-6-5.png)
+![](/images/projects/iot-6-5.png)
 
 ---
 
@@ -66,7 +66,7 @@ Installing Wireshark on their official website.
 
 <br>
 
-![](/images/iot-6-6.png)
+![](/images/projects/iot-6-6.png)
 
 <br>
 
@@ -74,7 +74,7 @@ Installing Wireshark on their official website.
 
 <br>
 
-![](/images/iot-6-7.png)
+![](/images/projects/iot-6-7.png)
 
 <br>
 
@@ -82,7 +82,7 @@ Installing Wireshark on their official website.
 
 <br>
 
-![](/images/iot-6-8.png)
+![](/images/projects/iot-6-8.png)
 
 ---
 
@@ -100,7 +100,7 @@ Installing Wireshark on their official website.
 
 <br>
 
-![](/images/iot-6-9.png)
+![](/images/projects/iot-6-9.png)
 
 <br>
 
@@ -112,7 +112,7 @@ Installing Wireshark on their official website.
 
 <br>
 
-![](/images/iot-6-10.png)
+![](/images/projects/iot-6-10.png)
 
 <br>
 
@@ -124,7 +124,7 @@ Installing Wireshark on their official website.
 
 <br>
 
-![](/images/iot-6-11.png)
+![](/images/projects/iot-6-11.png)
 
 <br>
 
@@ -136,7 +136,7 @@ Installing Wireshark on their official website.
 
 <br>
 
-![](/images/iot-6-12.png)
+![](/images/projects/iot-6-12.png)
 
 <br>
 
@@ -148,11 +148,11 @@ Installing Wireshark on their official website.
 
 <br>
 
-![](/images/iot-6-13.png)
+![](/images/projects/iot-6-13.png)
 
 <br>
 
-![](/images/iot-6-14.png)
+![](/images/projects/iot-6-14.png)
 
 <br>
 
@@ -171,4 +171,4 @@ Installing Wireshark on their official website.
 
 <br>
 
-![](/images/iot-6-15.png)
+![](/images/projects/iot-6-15.png)

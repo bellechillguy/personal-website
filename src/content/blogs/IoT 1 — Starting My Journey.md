@@ -1,5 +1,5 @@
 ---
-title: "IoT 1 — Starting My Journey"
+title: "IoT 1 - Starting My Journey"
 date: "2026-02-23"
 excerpt: "I will tell you the starting point of my IoT journey"
 ---
@@ -20,7 +20,7 @@ excerpt: "I will tell you the starting point of my IoT journey"
 
 &emsp;Last week, I prepared the things needed (namely those in the picture above). Thanks to the lecturers because they have made it easier for us by making a list of links to the items that must be purchased.
 
-![](/images/iot-1-2.png)
+![](/images/projects/iot-1-2.png)
 
 <br>
 
@@ -44,7 +44,7 @@ excerpt: "I will tell you the starting point of my IoT journey"
 
    Choose the right operating system for you.
 
-![](/images/iot-1-3.png)
+![](/images/projects/iot-1-3.png)
 
 ---
 
@@ -58,7 +58,7 @@ excerpt: "I will tell you the starting point of my IoT journey"
 
 **Arduino IDE → Settings → Additional Boards Manager URLs**
 
-![](/images/iot-1-4.png)
+![](/images/projects/iot-1-4.png)
 
 <br>
 
@@ -66,7 +66,7 @@ excerpt: "I will tell you the starting point of my IoT journey"
 
 https://espressif.github.io/arduino-esp32/package_esp32_index.json
 
-![](/images/iot-1-5.png)
+![](/images/projects/iot-1-5.png)
 
 ---
 
@@ -80,13 +80,13 @@ https://espressif.github.io/arduino-esp32/package_esp32_index.json
 
 **Tools → Board → Boards Manager**
 
-![](/images/iot-1-6.png)
+![](/images/projects/iot-1-6.png)
 
 <br>
 
 &emsp;Search **"esp32"**, then install the package created by **Espressif Systems**.
 
-![](/images/iot-1-7.png)
+![](/images/projects/iot-1-7.png)
 
 ---
 
@@ -100,7 +100,7 @@ https://espressif.github.io/arduino-esp32/package_esp32_index.json
 
 **Tools → Board → esp32**
 
-![](/images/iot-1-8.png)
+![](/images/projects/iot-1-8.png)
 
 <br>
 
@@ -128,13 +128,13 @@ https://www.silabs.com/software-and-tools/usb-to-uart-bridge-vcp-drivers?tab=dow
 
 &emsp;Connect your ESP32 board to your PC/laptop using a **micro USB cable**. If you're using a MacBook, you'll also need a **USB-C to USB adapter/HDMI hub**.
 
-![](/images/iot-1-9.png)
+![](/images/projects/iot-1-9.png)
 
 *Micro USB cable*
 
 <br>
 
-![](/images/iot-1-10.png)
+![](/images/projects/iot-1-10.png)
 
 *USB-C to USB HDMI cable*
 
@@ -154,13 +154,13 @@ https://www.silabs.com/software-and-tools/usb-to-uart-bridge-vcp-drivers?tab=dow
 
 Choose that port (mine says **/dev/cu.usbserial-0001**).
 
-![](/images/iot-1-11.png)
+![](/images/projects/iot-1-11.png)
 
 <br>
 
 &emsp;Additionally, your ESP32 LED will glow red like this.
 
-![](/images/iot-1-12.png)
+![](/images/projects/iot-1-12.png)
 
 *ESP32 glows in red*
 
@@ -178,7 +178,7 @@ Choose that port (mine says **/dev/cu.usbserial-0001**).
 
 &emsp;Then, Arduino IDE will open the example source code.
 
-![](/images/iot-1-14.png)
+![](/images/projects/iot-1-14.png)
 
 ---
 
@@ -190,11 +190,11 @@ Choose that port (mine says **/dev/cu.usbserial-0001**).
 
 &emsp;Click **Upload** to compile and upload the sketch.
 
-![](/images/iot-1-15.png)
+![](/images/projects/iot-1-15.png)
 
 <br>
 
-![](/images/iot-1-16.png)
+![](/images/projects/iot-1-16.png)
 
 <br>
 
@@ -202,4 +202,4 @@ Choose that port (mine says **/dev/cu.usbserial-0001**).
 
 &emsp;Here is the result (the blue LED light is blinking):
 
-![](/images/iot-1-17.png)
+![](/images/projects/iot-1-17.png)

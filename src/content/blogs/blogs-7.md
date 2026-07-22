@@ -3,7 +3,7 @@ title: "Wrapped | CTF Reverse Engineering Write Up (ARA 7.0 ITS)"
 date: "2026-02-06"
 ---
 
-![](/images/Wrapped-1.png)
+![](/images/projects/Wrapped-1.png)
 
 <br>
 

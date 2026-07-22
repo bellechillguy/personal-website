@@ -4,7 +4,7 @@ date: "2025-07-27"
 excerpt: "This is not a love story, this is a story about love"
 ---
 
-![](/images/500-1.png)
+![](/images/projects/500-1.png)
 
 <br>
 
@@ -40,7 +40,7 @@ excerpt: "This is not a love story, this is a story about love"
 
 &emsp;Tom and Summer are getting closer. They are “pretty much” flirting with each other, or did she? (again). For instance, there is an iconic scene that makes everyone in the world talks about it, which is the ‘elevator’ scene, when Summer interrupting Tom — who was listening to music, and told him that she also loves The Smiths. Of course, as a hopeless romantic guy, he thought that moment is an awakening call from God that Summer is the one for him. Yes, he thinks that the same taste in music is a big sign, or whatever it’s called.
 
-![](/images/500-2.png)
+![](/images/projects/500-2.png)
 
 <br>
 
@@ -100,4 +100,4 @@ excerpt: "This is not a love story, this is a story about love"
 
   &emsp;“I was sitting in a deli and reading Dorian Gray, and a guy came up to me and asked me about it, and now he is my husband. So, what if I’d gone to the movies? What if I had gone somewhere else for lunch? What if I’d gotten there 10 minutes later? Coincidence. That’s all anything ever is. **Nothing more than coincidence. There’s no such thing as fate. Nothing is meant to be**.”
 
-[image1]: /images/REVIEW-OF-500-DAYS-OF-SUMMER-image1.png
+[image1]: /images/projects/REVIEW-OF-500-DAYS-OF-SUMMER-image1.png
