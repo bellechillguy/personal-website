@@ -8,7 +8,7 @@ I wanted to create a website that truly represents who I am, like my work and th
 
 <img width="409.5" height="261" alt="Image" src="https://github.com/user-attachments/assets/6ba514ac-e78e-4caa-8f1e-b601413dc037" />
 
-**Live site:** [bellechillguy.vercel.app](https://bellechillguy.vercel.app)
+**Live site:** [bellechillguy.dev](https://bellechillguy.dev)
 
 ## Features
 
