@@ -28,10 +28,10 @@ export const InterestsPanel = component$(() => {
             href={link.url}
             target="_blank"
             rel="noreferrer noopener"
-            class="interest-link-card panel-yellow group relative flex items-center border border-border shadow-[var(--sh-1)] transition-shadow duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring animate-window-in"
+            class="interest-link-card content-card panel-yellow group relative flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring animate-window-in"
             style={{ animationDelay: `${index * 75}ms` }}
           >
-            <div class="interest-link-icon flex shrink-0 items-center justify-center border border-border/50 bg-[#f9fafb] transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105 group-hover:shadow-sm">
+            <div class="interest-link-icon flex shrink-0 items-center justify-center transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:shadow-sm">
               {link.icon}
             </div>
 

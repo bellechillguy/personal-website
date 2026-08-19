@@ -1,5 +1,5 @@
 import { component$, useSignal, $, useVisibleTask$ } from "@builder.io/qwik";
-import { Link } from "@builder.io/qwik-city";
+import { Link, useLocation } from "@builder.io/qwik-city";
 import {
   IconAppleMusic,
   IconDoc,
@@ -56,10 +56,10 @@ const PLAYLIST = [
   "/music/whats-wrong-with-me.mp3",
 ];
 
-const BASE_DESKTOP_SIZE = 56;
-const BASE_MOBILE_SIZE = 42;
-const MAX_DESKTOP_SIZE = 80;
-const MAGNIFICATION_RANGE = 150;
+const BASE_DESKTOP_SIZE = 50;
+const BASE_MOBILE_SIZE = 38;
+const MAX_DESKTOP_SIZE = 70;
+const MAGNIFICATION_RANGE = 135;
 const SPRING_EASE = 0.22;
 
 interface DockMotionState {
@@ -196,23 +196,30 @@ const DockIcon = component$(({ icon }: { icon: IconKey }) => {
   return <IconPDF class={iconClass} />;
 });
 
-const DockItem = component$(({ to, label, icon }: { to: string; label: string; icon: IconKey }) => {
-  return (
-    <Link
-      href={to}
-      class="dock-item group relative flex flex-col items-center justify-end shrink-0"
-      aria-label={label}
-    >
-      <span
-        data-dock-icon
-        class="dock-icon flex items-center justify-center transition-transform origin-bottom"
+const DockItem = component$(
+  ({ to, label, icon, active }: { to: string; label: string; icon: IconKey; active: boolean }) => {
+    return (
+      <Link
+        href={to}
+        class="dock-item group relative flex flex-col items-center justify-end shrink-0"
+        aria-label={label}
+        aria-current={active ? "page" : undefined}
+        data-active={active ? "true" : "false"}
       >
-        <DockIcon icon={icon} />
-      </span>
-      <div class="h-1 w-1 rounded-full bg-foreground/20 mt-1 opacity-0 group-hover:opacity-100 transition-opacity" />
-    </Link>
-  );
-});
+        <span class="dock-tooltip" role="tooltip">
+          {label}
+        </span>
+        <span
+          data-dock-icon
+          class="dock-icon flex items-center justify-center transition-transform origin-bottom"
+        >
+          <DockIcon icon={icon} />
+        </span>
+        <span class="dock-running-indicator" aria-hidden="true" />
+      </Link>
+    );
+  },
+);
 
 const MusicToggleButton = component$(() => {
   const isPlaying = useSignal(false);
@@ -267,21 +274,21 @@ const MusicToggleButton = component$(() => {
     <button
       onClick$={togglePlay}
       class="dock-item group relative flex flex-col items-center justify-end shrink-0 outline-none"
+      data-playing={isPlaying.value ? "true" : "false"}
+      aria-label={isPlaying.value ? "Pause music" : "Play music"}
+      aria-pressed={isPlaying.value}
     >
+      <span class="dock-tooltip" role="tooltip">
+        {isPlaying.value ? "Pause Music" : "Apple Music"}
+      </span>
       <span
         data-dock-icon
-        class="dock-icon relative flex items-center justify-center rounded-xl transition-colors p-1"
+        class="dock-icon relative flex items-center justify-center rounded-xl p-1"
       >
-        {isPlaying.value ? (
-          <span class="absolute inset-0 rounded-xl shadow-[inset_0_0_0_4px_#f472b6] animate-pulse pointer-events-none z-20" />
-        ) : null}
-
         <IconAppleMusic class="max-w-full max-h-full w-auto h-auto drop-shadow-sm z-10" />
       </span>
 
-      <div
-        class={`h-1 w-1 rounded-full mt-1 transition-colors ${isPlaying.value ? "bg-foreground" : "bg-foreground/20 opacity-0 group-hover:opacity-100"}`}
-      />
+      <span class="dock-running-indicator" aria-hidden="true" />
 
       <audio ref={audioRef} src={PLAYLIST[0]} preload="metadata" onEnded$={playNextTrack} />
     </button>
@@ -289,9 +296,12 @@ const MusicToggleButton = component$(() => {
 });
 
 export const Dock = component$(() => {
+  const location = useLocation();
+
   return (
     <nav
-      class="dock fixed bottom-3 sm:bottom-[26px] left-1/2 -translate-x-1/2 z-40 px-2 py-2 sm:px-3 sm:py-2.5 rounded-3xl backdrop-blur-[20px] border border-white/55 shadow-window flex items-end gap-1.5 sm:gap-2.5 max-w-[calc(100vw-16px)] overflow-x-auto scrollbar-none touch-pan-x"
+      class="dock fixed bottom-3 sm:bottom-[26px] left-1/2 -translate-x-1/2 z-40 flex items-end gap-1.5 sm:gap-2 max-w-[calc(100vw-16px)] scrollbar-none touch-pan-x"
+      aria-label="Primary applications"
       onMouseMove$={(event, element) => {
         updateDockMagnification(element, event.clientX);
       }}
@@ -300,15 +310,27 @@ export const Dock = component$(() => {
       }}
     >
       {items.map((item) => (
-        <DockItem key={item.to + item.label} {...item} />
+        <DockItem
+          key={item.to + item.label}
+          {...item}
+          active={
+            item.to === "/"
+              ? location.url.pathname === "/"
+              : location.url.pathname.startsWith(item.to)
+          }
+        />
       ))}
 
       <MusicToggleButton />
 
-      <span class="w-[1px] h-10 bg-border mx-1 sm:mx-1.5 shrink-0" />
+      <span class="dock-separator" aria-hidden="true" />
 
       {rightItems.map((item) => (
-        <DockItem key={item.to + item.label} {...item} />
+        <DockItem
+          key={item.to + item.label}
+          {...item}
+          active={location.url.pathname.startsWith(item.to)}
+        />
       ))}
     </nav>
   );

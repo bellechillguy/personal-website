@@ -20,7 +20,7 @@ export const ExperiencePanel = component$(() => {
           return (
             <li
               key={`${entryKey}-${index}`}
-              class="relative pl-8 pb-8 last:pb-0 group animate-window-in"
+              class="experience-entry relative pl-8 pb-8 last:pb-0 group animate-window-in"
               style={{ animationDelay: `${index * 80}ms` }}
             >
               {/* --- MAIN TIMELINE LINE --- */}
@@ -41,19 +41,18 @@ export const ExperiencePanel = component$(() => {
                 }}
               />
 
-              <article class="rounded-[14px] border border-transparent p-4 -ml-4 transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:bg-sticky/40 group-hover:border-border/50 group-hover:shadow-sm">
-                
+              <article class="experience-card rounded-[14px] border border-transparent p-4 -ml-4 transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:bg-sticky/40 group-hover:border-border/50 group-hover:shadow-sm">
                 {/* Header Section */}
                 <div class="flex flex-col md:flex-row md:items-start justify-between gap-2 md:gap-4">
                   <div>
-                    <h3 class="font-display text-[17px] font-bold text-foreground leading-tight transition-colors group-hover:text-accent-ink">
+                    <h3 class="experience-card__title font-display text-[17px] font-bold text-foreground leading-tight transition-colors group-hover:text-accent-ink">
                       {isGrouped ? e.org : e.title}
                     </h3>
                     {!isGrouped && e.org && (
                       <p class="mt-1 text-[14px] font-medium text-foreground/70">{e.org}</p>
                     )}
                   </div>
-                  
+
                   <time class="shrink-0 text-[12px] font-medium text-foreground/50 tabular-nums md:mt-1">
                     {e.period}
                   </time>
@@ -98,11 +97,9 @@ export const ExperiencePanel = component$(() => {
                                 {role.period}
                               </time>
                             </div>
-                            
+
                             {role.type && (
-                              <p class="text-[12px] font-medium text-foreground/65">
-                                {role.type}
-                              </p>
+                              <p class="text-[12px] font-medium text-foreground/65">{role.type}</p>
                             )}
                           </div>
 
@@ -111,9 +108,12 @@ export const ExperiencePanel = component$(() => {
                               {role.description}
                             </p>
                           )}
-                          
+
                           {roleIndex < e.roles.length - 1 && (
-                            <span aria-hidden="true" class="mt-5 block h-px bg-border/40 md:hidden" />
+                            <span
+                              aria-hidden="true"
+                              class="mt-5 block h-px bg-border/40 md:hidden"
+                            />
                           )}
                         </section>
                       ))}

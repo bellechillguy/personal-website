@@ -19,7 +19,7 @@ export default component$(() => {
                   alt="Bellechillguy"
                   class="name-image"
                   height={209}
-                  src="/images/bellechillguy.png"
+                  src="/images/bellechillguy.webp"
                   width={1306}
                 />
               </span>
@@ -60,7 +60,7 @@ export default component$(() => {
         </div>
 
         <div class="home-visual relative mt-6 flex w-full max-w-[315px] flex-col items-center justify-self-center gap-4 animate-window-in sm:flex-row lg:mt-0 lg:block lg:h-[409.293px] lg:w-[280px] lg:max-w-none lg:self-center">
-          <div class="home-photo z-10 w-[230px] transform transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:rotate-2 hover:scale-[1.03] sm:w-[245px] lg:absolute lg:left-0 lg:top-0 lg:w-[280px]">
+          <div class="home-photo z-10 w-[230px] sm:w-[245px] lg:absolute lg:left-0 lg:top-0 lg:w-[280px]">
             <div class="dark:hidden">
               <PhotoCard caption="𐙚 ˚🍰 ⋆｡˚ ᡣ𐭩" rotate={-4} src="/images/pinkie-pie.gif" />
             </div>

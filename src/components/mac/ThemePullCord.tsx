@@ -3,15 +3,15 @@ import { $, component$, useSignal, useVisibleTask$ } from "@builder.io/qwik";
 type Theme = "light" | "dark";
 
 const THEME_STORAGE_KEY = "portfolio-theme";
-const PARTICLE_COUNT = 42;
+const PARTICLE_COUNT = 24;
 const PULL_TRIGGER_DISTANCE = 18;
-const MAX_PULL_DISTANCE = 42;
+const MAX_PULL_DISTANCE = 38;
 const PINKIE_MARK = "/images/cutie-marks/pinkie-pie.svg";
 const TWILIGHT_MARK = "/images/cutie-marks/twilight-sparkle.svg";
 
 // Keep particle generation outside to avoid recalculating on re-renders
 const particles = Array.from({ length: PARTICLE_COUNT }, (_, index) => {
-  const duration = 1700 + ((index * 173) % 800);
+  const duration = 1250 + ((index * 173) % 550);
   const phase = Math.round((index / PARTICLE_COUNT) * duration);
   const opacity = 0.72 + (index % 5) * 0.065;
 
@@ -19,7 +19,7 @@ const particles = Array.from({ length: PARTICLE_COUNT }, (_, index) => {
     left: `${2 + ((index * 61.8) % 96)}%`,
     delay: `-${phase}ms`,
     duration: `${duration}ms`,
-    size: `${30 + ((index * 7) % 28)}px`,
+    size: `${22 + ((index * 7) % 18)}px`,
     opacity: `${opacity}`,
     fadeOpacity: `${opacity * 0.82}`,
   };
@@ -119,7 +119,7 @@ export const ThemePullCord = component$(() => {
         data-animating={isAnimating.value ? "true" : "false"}
         data-theme={theme.value}
         style={{ "--pull-distance": `${pullDistance.value}px` }}
-        aria-label="Toggle dark mode"
+        aria-label={`Switch to ${theme.value === "dark" ? "light" : "dark"} mode`}
         aria-checked={theme.value === "dark"}
         aria-busy={isAnimating.value}
         title={`Pull to switch to ${theme.value === "dark" ? "light" : "dark"} mode`}
@@ -172,6 +172,7 @@ export const ThemePullCord = component$(() => {
         <span class="theme-pull-cord__anchor" aria-hidden="true" />
         <span class="theme-pull-cord__line" aria-hidden="true" />
         <span class="theme-pull-cord__bead" aria-hidden="true">
+          <span class="theme-pull-cord__glint" />
           <img
             src={theme.value === "dark" ? TWILIGHT_MARK : PINKIE_MARK}
             alt=""

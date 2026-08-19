@@ -16,7 +16,7 @@ export function AboutPanel() {
                   alt="Bellechillguy"
                   class="name-image"
                   height={209}
-                  src="/images/bellechillguy.png"
+                  src="/images/bellechillguy.webp"
                   width={1306}
                 />
               </span>
@@ -31,7 +31,7 @@ export function AboutPanel() {
 
       <div class="order-2 w-[220px] justify-self-center md:col-start-2 md:row-span-2 md:row-start-1 md:w-[260px] md:self-center md:justify-self-end">
         <PhotoCard
-          src="/images/nisrina.jpg"
+          src="/images/nisrina.webp"
           caption="for whom the Belle tolls?"
           className="about-photo-card"
           rotate={-3}

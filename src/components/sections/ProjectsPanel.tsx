@@ -10,7 +10,7 @@ export const ProjectsPanel = component$(() => {
           href={p.link}
           target="_blank"
           rel="noreferrer noopener"
-          class="project-card group flex flex-col overflow-hidden rounded-[18px] border border-border bg-white shadow-[var(--sh-1)] transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1 hover:shadow-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring animate-window-in"
+          class="project-card content-card group flex flex-col overflow-hidden animate-window-in"
           style={{ animationDelay: `${index * 75}ms` }}
         >
           <div class="relative aspect-[16/9] overflow-hidden border-b border-border/50 bg-muted/20">
@@ -22,7 +22,7 @@ export const ProjectsPanel = component$(() => {
 
             <span aria-hidden="true" class="project-image-shade" />
 
-            <span class="absolute top-3 right-3 flex items-center gap-1 rounded-full bg-surface/90 backdrop-blur px-3 py-1.5 text-[11px] font-bold text-foreground shadow-sm transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-105">
+            <span class="glass-control absolute top-3 right-3 flex items-center gap-1 px-3 py-1.5 text-[11px] font-bold text-foreground">
               Visit
               <span class="transition-transform duration-300 ease-out group-hover:-translate-y-[2px] group-hover:translate-x-[2px]">
                 ↗
@@ -45,7 +45,7 @@ export const ProjectsPanel = component$(() => {
               {p.tech.slice(0, 4).map((t) => (
                 <span
                   key={t}
-                  class="rounded-full border border-border/50 bg-white px-[10.909px] py-[4.909px] text-[11px] font-medium leading-[16.5px] text-foreground/80"
+                  class="project-tag rounded-full px-[10.909px] py-[4.909px] text-[11px] font-medium leading-[16.5px] text-foreground/80"
                 >
                   {t}
                 </span>

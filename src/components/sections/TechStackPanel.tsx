@@ -8,7 +8,7 @@ export const TechStackPanel = component$(() => {
       {techStack.map((cat, index) => (
         <section
           key={cat.title}
-          class="panel-cyan flex flex-col rounded-[14px] border border-border p-5 shadow-[var(--sh-1)] transition-all duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1 hover:shadow-lg animate-window-in"
+          class="tech-card content-card panel-cyan flex flex-col p-5 animate-window-in"
           style={{ animationDelay: `${index * 75}ms` }}
         >
           <div class="mb-4 flex items-center justify-between">
@@ -20,7 +20,7 @@ export const TechStackPanel = component$(() => {
               </h2>
             </div>
 
-            <span class="rounded-full border border-border/60 bg-white/75 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-foreground/55">
+            <span class="window-count-badge px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-foreground/55">
               {cat.items.length} tools
             </span>
           </div>
@@ -32,7 +32,7 @@ export const TechStackPanel = component$(() => {
                 class="transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1 hover:scale-105"
               >
                 {TechTag ? (
-                  <TechTag name={it.name} color={it.color} />
+                  <TechTag name={it.name} color={it.color} iconTone={it.iconTone} />
                 ) : (
                   <span class="inline-flex items-center rounded-lg border border-border/60 bg-muted px-3 py-1.5 text-[13px] font-medium text-foreground/80 shadow-sm transition-colors hover:border-border hover:bg-surface">
                     {it.name}

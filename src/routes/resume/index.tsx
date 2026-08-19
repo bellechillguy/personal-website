@@ -17,7 +17,7 @@ export default component$(() => {
               href="/resume.pdf"
               target="_blank"
               rel="noreferrer noopener"
-              class="hidden items-center rounded-full border border-border bg-white/85 px-3.5 py-2 text-xs font-semibold text-foreground transition-colors hover:bg-white sm:inline-flex"
+              class="glass-button hidden items-center px-3.5 py-2 text-xs font-semibold text-foreground sm:inline-flex"
             >
               Open
             </a>
@@ -25,7 +25,7 @@ export default component$(() => {
             <a
               href="/resume.pdf"
               download
-              class="inline-flex items-center gap-1.5 rounded-full bg-foreground px-4 py-2 text-xs font-bold text-white transition-opacity hover:opacity-90"
+              class="glass-button glass-button--primary inline-flex items-center gap-1.5 px-4 py-2 text-xs font-bold"
             >
               Download PDF
               <span>↓</span>

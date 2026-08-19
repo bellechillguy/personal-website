@@ -29,17 +29,10 @@ export const ContactPanel = component$(() => {
             aria-label={`Visit ${s.name} profile`}
             style={{ animationDelay: `${index * 80}ms` }}
             class="
-              group relative overflow-hidden
+              contact-card content-card group relative overflow-hidden
               flex flex-col justify-between
-              rounded-[14px]
-              border border-border
               panel-yellow
               p-5
-              shadow-sh-1
-              transition-all duration-300
-              ease-[cubic-bezier(.22,1,.36,1)]
-              hover:-translate-y-1
-              hover:shadow-sh-2
               focus-visible:outline-none
               focus-visible:ring-2
               focus-visible:ring-ring
@@ -61,11 +54,8 @@ export const ContactPanel = component$(() => {
                 class="
                   flex h-11 w-11
                   items-center justify-center
-                  rounded-sm
-                  border border-hairline
-                  bg-white/80
+                  contact-card__icon
                   transition-all duration-300
-                  group-hover:bg-white
                   group-hover:shadow-sh-1
                 "
               >
@@ -124,9 +114,7 @@ export const ContactPanel = component$(() => {
                 class="
                   inline-flex
                   items-center
-                  rounded-full
-                  border border-hairline
-                  bg-white/80
+                  contact-card__badge
                   px-3 py-1
                   text-[10px]
                   font-bold
@@ -135,7 +123,6 @@ export const ContactPanel = component$(() => {
                   text-ink-2
                   transition-all duration-300
 
-                  group-hover:bg-white
                   group-hover:text-accent-ink
                   group-hover:border-sticky
                 "
