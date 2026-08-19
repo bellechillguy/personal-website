@@ -1,129 +1,31 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   viewBox="-393 -573 767 1290"
-   width="500"
-   height="841"
-   id="svg2"
-   version="1.1"
-   inkscape:version="0.48.1 "
-   sodipodi:docname="cmpinkiepie.svg">
-  <metadata
-     id="metadata33">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <defs
-     id="defs31">
-    <defs
-       id="defmain">
-      <g
-         id="def51">
-        <path
-           d="m -45 -193 q -31 79 -40 121 q -15 73 40 137 q 109 127 46 192 q -20 20 -44 17 q -26 -3 -33 -31 q -8 -30 9 -45 q 18 -16 45 6"
-           stroke-width="14"
-           stroke-miterlimit="4"
-           stroke-linejoin="miter"
-           stroke-linecap="butt"
-           stroke="rgb(128, 209, 245)"
-           fill="none"
-           id="def51:0" />
-        <path
-           d="m 193 188 q -59 67 -74 127 q -19 78 26 165 q 49 94 43 164 q -7 70 -63 65 q -39 -3 -58 -45 q -18 -41 -1 -82"
-           stroke-width="14"
-           stroke-miterlimit="4"
-           stroke-linejoin="miter"
-           stroke-linecap="butt"
-           stroke="rgb(253, 246, 174)"
-           fill="none"
-           id="def51:1" />
-        <path
-           d="m -205 244 q 52 30 64 75 q 11 37 -2 102 q -16 76 9 135 q 30 71 103 35 q 49 -24 37 -87 q -12 -62 -71 -72"
-           stroke-width="14"
-           stroke-miterlimit="4"
-           stroke-linejoin="miter"
-           stroke-linecap="butt"
-           stroke="rgb(253, 246, 174)"
-           fill="none"
-           id="def51:2" />
-        <path
-           d="m 6 -529 q 39 48 46 122 q 6 59 -13 108 q -19 48 -54 69 l 32 90 l -110 -24 l 25 -56 q -44 -5 -77 -52 q -33 -47 -40 -113 q -7 -73 23 -128 q 30 -55 79 -60 q 49 -4 89 44"
-           fill="rgb(253, 246, 174)"
-           id="def51:3" />
-        <path
-           d="m 126 83 q -12 -56 10 -119 q 23 -70 73 -108 q 50 -38 97 -22 q 47 16 63 77 q 16 60 -8 130 q -19 56 -57 93 q -37 36 -77 40 l 2 90 l -118 -38 l 64 -63 q -38 -23 -49 -80"
-           fill="rgb(128, 209, 245)"
-           id="def51:4" />
-        <path
-           d="m -383 36 q -18 -71 3 -130 q 21 -59 68 -72 q 48 -12 95 30 q 46 42 65 113 q 15 57 3 109 q -11 50 -42 76 l 39 67 l -108 49 l 19 -97 q -44 1 -84 -40 q -41 -41 -58 -105"
-           fill="rgb(128, 209, 245)"
-           id="def51:5" />
-      </g>
-    </defs>
-  </defs>
-  <sodipodi:namedview
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="1280"
-     inkscape:window-height="962"
-     id="namedview29"
-     showgrid="false"
-     inkscape:zoom="0.62068965"
-     inkscape:cx="38.245271"
-     inkscape:cy="420.65983"
-     inkscape:window-x="-8"
-     inkscape:window-y="-8"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="svg2" />
-  <path
-     style="fill:none;stroke:#80d1f5;stroke-width:14;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4"
-     inkscape:connector-curvature="0"
-     d="m -45,-193 q -31,79 -40,121 -15,73 40,137 109,127 46,192 -20,20 -44,17 -26,-3 -33,-31 -8,-30 9,-45 18,-16 45,6"
-     stroke-miterlimit="4"
-     id="path17" />
-  <path
-     style="fill:none;stroke:#fdf6ae;stroke-width:14;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4"
-     inkscape:connector-curvature="0"
-     d="m 193,188 q -59,67 -74,127 -19,78 26,165 49,94 43,164 -7,70 -63,65 -39,-3 -58,-45 -18,-41 -1,-82"
-     stroke-miterlimit="4"
-     id="path19" />
-  <path
-     style="fill:none;stroke:#fdf6ae;stroke-width:14;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4"
-     inkscape:connector-curvature="0"
-     d="m -205,244 q 52,30 64,75 11,37 -2,102 -16,76 9,135 30,71 103,35 49,-24 37,-87 -12,-62 -71,-72"
-     stroke-miterlimit="4"
-     id="path21" />
-  <path
-     style="fill:#fdf6ae"
-     inkscape:connector-curvature="0"
-     d="m 6,-529 q 39,48 46,122 6,59 -13,108 -19,48 -54,69 l 32,90 -110,-24 25,-56 q -44,-5 -77,-52 -33,-47 -40,-113 -7,-73 23,-128 30,-55 79,-60 49,-4 89,44"
-     id="path23" />
-  <path
-     style="fill:#80d1f5"
-     inkscape:connector-curvature="0"
-     d="m 126,83 q -12,-56 10,-119 23,-70 73,-108 50,-38 97,-22 47,16 63,77 16,60 -8,130 -19,56 -57,93 -37,36 -77,40 l 2,90 -118,-38 64,-63 Q 137,140 126,83"
-     id="path25" />
-  <path
-     style="fill:#80d1f5"
-     inkscape:connector-curvature="0"
-     d="m -383,36 q -18,-71 3,-130 21,-59 68,-72 48,-12 95,30 46,42 65,113 15,57 3,109 -11,50 -42,76 l 39,67 -108,49 19,-97 q -44,1 -84,-40 -41,-41 -58,-105"
-     id="path27" />
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="17" height="17" viewBox="0 1.5 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Image">
+<g clip-path="url(#clip0_0_4)">
+<path id="path17" d="M8.03217 6.50775C7.75982 7.20181 7.58411 7.73333 7.50504 8.10233C7.37326 8.74367 7.54897 9.34548 8.03217 9.90775C8.98979 11.0235 9.19186 11.8669 8.63837 12.438C8.46266 12.6137 8.26938 12.6884 8.05853 12.662C7.8301 12.6357 7.68514 12.4995 7.62364 12.2535C7.55336 11.9899 7.59289 11.7922 7.74225 11.6605C7.90039 11.5199 8.09806 11.5463 8.33527 11.7395" stroke="#80D1F5" stroke-width="0.184496"/>
+<path id="path19" d="M11.1686 11.5287C10.6503 12.1173 10.3252 12.6752 10.1934 13.2023C10.0265 13.8876 10.1407 14.6124 10.536 15.3767C10.9665 16.2026 11.1554 16.923 11.1027 17.538C11.0412 18.153 10.7645 18.4385 10.2725 18.3946C9.92985 18.3682 9.67506 18.1705 9.50814 17.8015C9.35 17.4413 9.34561 17.0811 9.49496 16.7209" stroke="#FDF6AE" stroke-width="0.184496"/>
+<path id="path21" d="M5.92364 12.2667C6.38049 12.5302 6.66163 12.8597 6.76705 13.255C6.8637 13.5801 6.85491 14.0282 6.7407 14.5992C6.60013 15.2669 6.63966 15.8599 6.8593 16.3783C7.12287 17.0021 7.57532 17.1558 8.21667 16.8395C8.64716 16.6287 8.80969 16.2465 8.70426 15.693C8.59884 15.1483 8.28695 14.832 7.7686 14.7442" stroke="#FDF6AE" stroke-width="0.184496"/>
+<path id="path23" d="M8.70426 2.07985C9.0469 2.50155 9.24897 3.03747 9.31047 3.6876C9.36318 4.20594 9.30607 4.68036 9.13915 5.11085C8.97222 5.53256 8.73501 5.83566 8.42752 6.02016L8.84922 7.2062L7.39961 6.88992L7.72907 6.15194C7.34251 6.10801 7.00426 5.87959 6.71434 5.46667C6.42442 5.05375 6.24871 4.55736 6.18721 3.97752C6.12571 3.33618 6.22674 2.7739 6.49031 2.2907C6.75388 1.80749 7.1009 1.54393 7.5314 1.5C7.96189 1.46486 8.35284 1.65814 8.70426 2.07985Z" fill="#FDF6AE"/>
+<path id="path25" d="M10.2857 10.145C10.1802 9.65297 10.2242 9.13023 10.4174 8.57674C10.6195 7.96176 10.9402 7.48734 11.3795 7.15349C11.8187 6.81964 12.2448 6.723 12.6578 6.86357C13.0707 7.00413 13.3474 7.34238 13.488 7.87829C13.6286 8.40543 13.5934 8.97649 13.3826 9.59147C13.2156 10.0835 12.9652 10.492 12.6314 10.8171C12.3063 11.1333 11.9681 11.309 11.6167 11.3442L11.643 12.5302L10.088 12.0295L10.9314 11.1992C10.5975 10.9972 10.3823 10.6457 10.2857 10.145Z" fill="#80D1F5"/>
+<path id="path27" d="M3.57791 9.52558C3.41977 8.90181 3.43295 8.33075 3.61744 7.8124C3.80194 7.29406 4.10065 6.97778 4.51357 6.86357C4.93527 6.75814 5.35258 6.88992 5.7655 7.25891C6.16964 7.62791 6.45517 8.12429 6.62209 8.74806C6.75388 9.24884 6.76705 9.72765 6.66163 10.1845C6.56499 10.6238 6.38049 10.9576 6.10814 11.186L6.62209 12.069L5.19884 12.7147L5.44923 11.4364C5.06266 11.4452 4.69367 11.2695 4.34225 10.9093C3.98204 10.5491 3.72726 10.0879 3.57791 9.52558Z" fill="#80D1F5"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_dd_0_4" x="-1" y="0" width="19" height="19" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="-0.5"/>
+<feGaussianBlur stdDeviation="0.5"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0.360784 0 0 0 0 0.145098 0 0 0 0 0.258824 0 0 0 0.42 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_0_4"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="0.2"/>
+<feGaussianBlur stdDeviation="0.15"/>
+<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.86 0"/>
+<feBlend mode="normal" in2="effect1_dropShadow_0_4" result="effect2_dropShadow_0_4"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_0_4" result="shape"/>
+</filter>
+<clipPath id="clip0_0_4">
+<rect width="17" height="17" fill="white" transform="translate(0 1.5)"/>
+</clipPath>
+</defs>
 </svg>

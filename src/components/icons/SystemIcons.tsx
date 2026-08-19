@@ -1,19 +1,19 @@
 import type { QwikIntrinsicElements } from "@builder.io/qwik";
 
-import finder from "@/assets/icons/macos/finder.png";
-import projects from "@/assets/icons/macos/projects.png";
-import techStack from "@/assets/icons/macos/tech_stack.png";
-import experience from "@/assets/icons/macos/experience.png";
-import aboutMe from "@/assets/icons/macos/about_me.png";
-import contact from "@/assets/icons/macos/contact.png";
-import blog from "@/assets/icons/macos/blog.png";
-import interest from "@/assets/icons/macos/interest.png";
-import resume from "@/assets/icons/macos/resume.png";
-import appleMusic from "@/assets/icons/macos/apple-music.png";
-import goodreads from "@/assets/icons/macos/goodreads.png";
-import medium from "@/assets/icons/macos/medium.png";
-import github from "@/assets/icons/macos/github.png";
-import linkedin from "@/assets/icons/macos/linkedin.png";
+import finder from "@/assets/icons/macos/finder.webp";
+import projects from "@/assets/icons/macos/projects.webp";
+import techStack from "@/assets/icons/macos/tech_stack.webp";
+import experience from "@/assets/icons/macos/experience.webp";
+import aboutMe from "@/assets/icons/macos/about_me.webp";
+import contact from "@/assets/icons/macos/contact.webp";
+import blog from "@/assets/icons/macos/blog.webp";
+import interest from "@/assets/icons/macos/interest.webp";
+import resume from "@/assets/icons/macos/resume.webp";
+import appleMusic from "@/assets/icons/macos/apple-music.webp";
+import goodreads from "@/assets/icons/macos/goodreads.webp";
+import medium from "@/assets/icons/macos/medium.webp";
+import github from "@/assets/icons/macos/github.webp";
+import linkedin from "@/assets/icons/macos/linkedin.webp";
 
 import iconC from "@/assets/icons/tech/c.svg";
 import iconCpp from "@/assets/icons/tech/cpp.svg";
@@ -61,11 +61,11 @@ import iconWireshark from "@/assets/icons/tech/wireshark.svg";
 import iconCisco from "@/assets/icons/tech/cisco.svg";
 import iconGhidra from "@/assets/icons/tech/ghidra.svg";
 import iconBurp from "@/assets/icons/tech/burpsuite.svg";
-import iconSpiderfoot from "@/assets/icons/tech/spiderfoot.png";
+import iconSpiderfoot from "@/assets/icons/tech/spiderfoot.webp";
 
 import iconUnity from "@/assets/icons/tech/unity.svg";
 import iconFigma from "@/assets/icons/tech/figma.svg";
-import iconProcreate from "@/assets/icons/tech/procreate.png";
+import iconProcreate from "@/assets/icons/tech/procreate.webp";
 
 type P = QwikIntrinsicElements["img"] & { className?: string };
 const base = "block";

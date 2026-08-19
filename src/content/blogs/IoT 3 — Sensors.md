@@ -18,7 +18,7 @@ excerpt: "A sensor is a device that reads environmental information."
 
 &emsp;This is the configuration of my **ESP32 built-in touch sensor**. To minimize errors and other issues, I suggest using an online lab simulator before jumping into real hardware work. However, it’s up to you.
 
-![](/images/projects/iot-3-1.png)
+![](/images/projects/iot-3-1.webp)
 
 <br>
 
@@ -45,7 +45,7 @@ excerpt: "A sensor is a device that reads environmental information."
 
 &emsp;Here is the final code I used based on my configuration.
 
-![](/images/projects/iot-3-2.png)
+![](/images/projects/iot-3-2.webp)
 
 *Source Code of ESP32 Touch Sensor*
 
@@ -67,7 +67,7 @@ Source: <https://randomnerdtutorials.com/esp32-touch-pins-arduino-ide/>
 
 &emsp;This is the wiring configuration that I used:
 
-![](/images/projects/iot-3-3.png)
+![](/images/projects/iot-3-3.webp)
 
 <br>
 
@@ -81,7 +81,7 @@ Source: <https://randomnerdtutorials.com/esp32-touch-pins-arduino-ide/>
 
 &emsp;Here is the final code I used based on my configuration.
 
-![](/images/projects/iot-3-5.png)
+![](/images/projects/iot-3-5.webp)
 
 *Source Code of ESP32 BME280*
 
@@ -95,7 +95,7 @@ Source: <https://randomnerdtutorials.com/esp32-bme280-arduino-ide-pressure-tempe
 
 &emsp;Here is the result. The measurement results appear on the serial monitor.
 
-![](/images/projects/iot-3-6.png)
+![](/images/projects/iot-3-6.webp)
 
 <br>
 

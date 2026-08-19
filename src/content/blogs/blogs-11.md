@@ -9,13 +9,13 @@ date: "2026-05-13"
 
 > `RmluZElUQ1RGe2phbmdhbl9sdXBhX2ZvbGxvd19pZ19maW5kaXR9`
 
-![](/images/projects/Did-1.png)
+![](/images/projects/Did-1.webp)
 
 <br>
 
 &emsp;I had a feeling that it was Base64. I opened CyberChef, and yes, I was right. Here is the output.
 
-![](/images/projects/Did-2.png)
+![](/images/projects/Did-2.webp)
 
 <br>
 

@@ -2,6 +2,7 @@ import { component$ } from "@builder.io/qwik";
 import { QwikCityProvider, RouterOutlet } from "@builder.io/qwik-city";
 import { RouterHead } from "@/components/router-head/router-head";
 import "./global.css";
+import "./styles/liquid-glass.css";
 
 const themeBootScript = `(function(){try{var key="portfolio-theme";var saved=localStorage.getItem(key);var theme=saved==="light"||saved==="dark"?saved:(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");var root=document.documentElement;root.classList.toggle("dark",theme==="dark");root.dataset.theme=theme;root.style.colorScheme=theme;}catch(error){}})();`;
 
@@ -12,8 +13,8 @@ export default component$(() => {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="color-scheme" content="light dark" />
-        <link rel="icon" type="image/png" href="/favicon.png?v=1" />
-        <link rel="apple-touch-icon" href="/favicon.png?v=1" />
+        <link rel="icon" type="image/webp" href="/favicon.webp?v=1" />
+        <link rel="apple-touch-icon" href="/favicon.webp?v=1" />
         <script dangerouslySetInnerHTML={themeBootScript} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

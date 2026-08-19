@@ -5,21 +5,21 @@ date: "2026-05-13"
 
 &emsp;We are given a customized Gemini AI as the attachment. I think it has something to do with prompt injection. I started the chat, and then looked in the way it thinks. It mentioned “PT-1412” and “PT1412”.
 
-![](/images/projects/The-1.png)
+![](/images/projects/The-1.webp)
 
 <br>
 
 &emsp;So, I input those strings into the next chat bubble, and this is their response:
 
-![](/images/projects/The-2.png)
+![](/images/projects/The-2.webp)
 
 <br>
 
 &emsp;Those clues pointed so much to **Tokyo Skytree.** I put the answer again in the next bubble chat.
 
-![](/images/projects/The-3.png)
+![](/images/projects/The-3.webp)
 
-![](/images/projects/The-4.png)
+![](/images/projects/The-4.webp)
 
 <br>
 
@@ -29,13 +29,13 @@ date: "2026-05-13"
 
 &emsp;After I tried so hard, I can conclude that the answer is **Musashi Sky Restaurant**!
 
-![](/images/projects/The-5.png)
+![](/images/projects/The-5.webp)
 
 <br>
 
 &emsp;I put those 3 words together and gave it back to the AI chat (with the format they wanted it to be), and… I got the flag!
 
-![](/images/projects/The-6.png)
+![](/images/projects/The-6.webp)
 
 ---
 

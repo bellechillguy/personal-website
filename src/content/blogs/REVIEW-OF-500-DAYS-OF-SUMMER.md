@@ -4,7 +4,7 @@ date: "2025-07-27"
 excerpt: "This is not a love story, this is a story about love"
 ---
 
-![](/images/projects/500-1.png)
+![](/images/projects/500-1.webp)
 
 <br>
 
@@ -40,7 +40,7 @@ excerpt: "This is not a love story, this is a story about love"
 
 &emsp;Tom and Summer are getting closer. They are “pretty much” flirting with each other, or did she? (again). For instance, there is an iconic scene that makes everyone in the world talks about it, which is the ‘elevator’ scene, when Summer interrupting Tom — who was listening to music, and told him that she also loves The Smiths. Of course, as a hopeless romantic guy, he thought that moment is an awakening call from God that Summer is the one for him. Yes, he thinks that the same taste in music is a big sign, or whatever it’s called.
 
-![](/images/projects/500-2.png)
+![](/images/projects/500-2.webp)
 
 <br>
 

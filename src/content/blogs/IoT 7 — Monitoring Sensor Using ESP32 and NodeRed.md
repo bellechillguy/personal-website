@@ -43,8 +43,8 @@ excerpt: "We actually have to send real sensor data over the internet and displa
 - SCL (sensor) → GPIO 22 (ESP32)
 - SDA (sensor) → GPIO 21 (ESP32)
 
-![](/images/projects/iot-7-1.png)
-![](/images/projects/iot-7-2.png)
+![](/images/projects/iot-7-1.webp)
+![](/images/projects/iot-7-2.webp)
 
 <br>
 
@@ -185,7 +185,7 @@ void loop() {
 
 &emsp;After uploading, the Serial Monitor showed a stream of readings: temperature sitting around 28.40°C and pressure around 93058 to 93067 Pa. That means it’s working.
 
-![](/images/projects/iot-7-4.png)
+![](/images/projects/iot-7-4.webp)
 
 <br>
 
@@ -199,7 +199,7 @@ void loop() {
 
 ### **1. Open Node-RED’s Manage Palette and install node-red-dashboard.**
 
-![](/images/projects/iot-7-5.png)
+![](/images/projects/iot-7-5.webp)
 
 <br>
 
@@ -212,8 +212,8 @@ void loop() {
 
 <br>
 
-![](/images/projects/iot-7-6.png)
-![](/images/projects/iot-7-7.png)
+![](/images/projects/iot-7-6.webp)
+![](/images/projects/iot-7-7.webp)
 
 <br>
 
@@ -233,9 +233,9 @@ void loop() {
 
 - Both gauges go into the same UI Group and Tab, named **Sensor**.
 
-![](/images/projects/iot-7-8.png)
+![](/images/projects/iot-7-8.webp)
 
-![](/images/projects/iot-7-9.png)
+![](/images/projects/iot-7-9.webp)
 
 <br>
 
@@ -257,4 +257,4 @@ void loop() {
 
 &emsp;The key thing I had to get right was making sure the topic names in Node-RED matched *exactly* what was in the ESP32 code. Once that clicked, the data just flowed, interesting…
 
-![](/images/projects/iot-7-11.png)
+![](/images/projects/iot-7-11.webp)

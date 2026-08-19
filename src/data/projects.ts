@@ -1,9 +1,9 @@
-import aquawatchImage from "@/assets/projects/aquawatch.png";
-import moodyImage from "@/assets/projects/moody.png";
-import simfasorImage from "@/assets/projects/simfasor.png";
-import nimonsCookedImage from "@/assets/projects/nimonscooked.png";
-import rumahSakitImage from "@/assets/projects/rumah-sakit-nimons.png";
-import graphicDesignImage from "@/assets/projects/graphic-design.png";
+import aquawatchImage from "@/assets/projects/aquawatch.webp";
+import moodyImage from "@/assets/projects/moody.webp";
+import simfasorImage from "@/assets/projects/simfasor.webp";
+import nimonsCookedImage from "@/assets/projects/nimonscooked.webp";
+import rumahSakitImage from "@/assets/projects/rumah-sakit-nimons.webp";
+import graphicDesignImage from "@/assets/projects/graphic-design.webp";
 
 export interface Project {
   title: string;

@@ -209,7 +209,7 @@ if __name__ == "__main__":
 
 &emsp;Run this script in your local (using venv). It will give you the flag in the `.png` output.
 
-![](/images/projects/The-1.png)
+![](/images/projects/The-1.webp)
 
 <br>
 
