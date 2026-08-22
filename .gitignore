@@ -54,3 +54,6 @@ coverage/
 
 # Local one-off utilities and unused source media
 convert-images.js
+
+# Local audit artifacts
+security-audit/
