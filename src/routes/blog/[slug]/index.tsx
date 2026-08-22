@@ -7,6 +7,7 @@ const dateFormatter = new Intl.DateTimeFormat("en", {
   month: "long",
   day: "numeric",
   year: "numeric",
+  timeZone: "UTC",
 });
 
 export const usePost = routeLoader$(async (event) => {
@@ -46,8 +47,15 @@ export default component$(() => {
 
   return (
     <>
-      <div class="blog-reading-progress" aria-hidden="true">
-        <span style={{ transform: `scaleX(${readingProgress.value})` }} />
+      <div
+        class="blog-reading-progress"
+        role="progressbar"
+        aria-label="Article reading progress"
+        aria-valuemin={0}
+        aria-valuemax={100}
+        aria-valuenow={Math.round(readingProgress.value * 100)}
+      >
+        <span aria-hidden="true" style={{ transform: `scaleX(${readingProgress.value})` }} />
       </div>
 
       <MacWindow
@@ -76,7 +84,7 @@ export default component$(() => {
             </div>
 
             <h1>{post.value.title}</h1>
-            <p>{post.value.excerpt}</p>
+            {post.value.hasExplicitExcerpt && <p>{post.value.excerpt}</p>}
           </header>
 
           <article class="blog-article" dangerouslySetInnerHTML={post.value.htmlContent} />
@@ -97,7 +105,17 @@ export default component$(() => {
   );
 });
 
-export const head: DocumentHead = {
-  title: "Blog post - bellechillguy",
-  meta: [{ name: "description", content: "Blog post by Nisrina Zakiyah." }],
+export const head: DocumentHead = ({ resolveValue }) => {
+  const post = resolveValue(usePost);
+
+  return {
+    title: `${post.title} - bellechillguy`,
+    meta: [
+      { name: "description", content: post.excerpt },
+      { property: "og:title", content: `${post.title} - bellechillguy` },
+      { property: "og:description", content: post.excerpt },
+      { property: "og:type", content: "article" },
+      { property: "article:published_time", content: post.date },
+    ],
+  };
 };
