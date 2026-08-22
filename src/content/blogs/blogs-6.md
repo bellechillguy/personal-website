@@ -19,8 +19,6 @@ date: "2025-08-02"
 
 <br>
 
-# **Flag**
+#### **Flag**
 
-<br>
-
-**SPARTA{hehe\_semoga\_ga\_terlalu\_susah\_ya\_buat\_intro}**
+> **SPARTA{hehe\_semoga\_ga\_terlalu\_susah\_ya\_buat\_intro}**

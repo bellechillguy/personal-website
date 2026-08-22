@@ -29,6 +29,4 @@ date: "2025-08-02"
 
 #### **Flag**
 
-```text
-SPARTA{y0u_r3v3r53d_my_L1n34r_C0ngRU3nt1Al_g3ner4t0r}
-```
+> **SPARTA{y0u_r3v3r53d_my_L1n34r_C0ngRU3nt1Al_g3ner4t0r}**

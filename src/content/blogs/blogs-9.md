@@ -245,4 +245,5 @@ print(pt.decode())
 
 <br>
 
-#### **FLAG: `ARA7{C0N9R4T5_y0u_F1ND_m3_lcmethod_fl4gggg}`**
+#### **FLAG**
+> **ARA7{C0N9R4T5_y0u_F1ND_m3_lcmethod_fl4gggg}**

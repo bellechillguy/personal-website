@@ -1,5 +1,5 @@
 ---
-title: "IoT 2 - Import & Output"
+title: "IoT 2 - Input & Output"
 date: "2026-02-26"
 excerpt: "Input and output are essential elements in the IoT world."
 ---

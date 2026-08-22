@@ -25,8 +25,6 @@ date: "2025-08-02"
 
 <br>
 
-# **Flag**
-
-<br>
+#### **Flag**
 
 > **SPARTA{big_braib_sql_injectionzzzzzzzzzzz}**

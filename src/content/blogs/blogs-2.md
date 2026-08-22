@@ -27,4 +27,6 @@ date: "2025-08-02"
 
 <br>
 
-#### **Flag: `SPARTA{8a51c_m0du14r_4r1thm3t1cs_r1gh7_7ust_r00t_t4k1ng_4nd_m0d1nv}`**
+#### **Flag**
+
+> **SPARTA{8a51c_m0du14r_4r1thm3t1cs_r1gh7_7ust_r00t_t4k1ng_4nd_m0d1nv}**

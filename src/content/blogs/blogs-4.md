@@ -107,4 +107,4 @@ date: "2025-08-02"
 
 <br>
 
-#### **Flag:** `SPARTA{pretty_much_99%_of_packet_capture_challs_is_like_this_4cd830d1cd9921d5}`
+> **SPARTA{pretty_much_99%_of_packet_capture_challs_is_like_this_4cd830d1cd9921d5}**

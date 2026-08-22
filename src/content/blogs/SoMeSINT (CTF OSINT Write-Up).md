@@ -32,8 +32,6 @@ excerpt: "We’re pretending to be Alex Juulut — who was told to investiga
 
 &emsp;We are given some information about what we’re going to do next. As you can see, we’re pretending to be Alex Juulut — who was told to investigating Thomas Straussman — a man whose being accused of cheating on his wife. Alex was hired by a person with an **"H"** initial.
 
-![][image1]
-
 <br>
 
 &emsp;From reading all of the text below, we can answer these two questions.
@@ -66,8 +64,6 @@ excerpt: "We’re pretending to be Alex Juulut — who was told to investiga
 
 &emsp;Since I didn’t find anything related to his birthday, I just moved to another social media—which is Reddit. I just googled "*tstraussman reddit*" on Google, and eventually I found it.
 
-![][image4]
-
 <br>
 
 &emsp;Then, I found this post, GOTCHA!
@@ -77,8 +73,6 @@ excerpt: "We’re pretending to be Alex Juulut — who was told to investiga
 <br>
 
 &emsp;But, to find the exact date of his birthday, we must inspect the website first. It says that the timestamp is in December 20, 2020. Because of he was 30 years old in 2020, with a little math, we know that his birthday is **12–20–1990**.
-
-![][image6]
 
 <br>
 
@@ -99,8 +93,6 @@ excerpt: "We’re pretending to be Alex Juulut — who was told to investiga
 <br>
 
 &emsp;This one is wayyy easier than before lol. Because we just only take a look at his header profile.
-
-![][image8]
 
 <br>
 
@@ -186,8 +178,6 @@ https://shadowban.eu/.api/tstraussman
 
 **December 25th**
 
-![][image15]
-
 <br>
 
 ### Q3. What is the name of their cat?
@@ -205,8 +195,6 @@ https://shadowban.eu/.api/tstraussman
 <br>
 
 **90 Day Fiancee**
-
-![][image17]
 
 ---
 
@@ -242,8 +230,6 @@ https://shadowban.eu/.api/tstraussman
 
 &emsp;I searched Hans’s username on my browser, and I found his Reddit account.
 
-![][image20]
-
 ![](/images/projects/SoMeSINT-21.webp)
 
 <br>
@@ -261,8 +247,6 @@ https://shadowban.eu/.api/tstraussman
 <br>
 
 &emsp;I found a suspicious link called **"Disapointed 2 Electric Boogaloo."** Of course I opened it. Then… JACKPOT!!!
-
-![][image23]
 
 <br>
 
@@ -297,19 +281,3 @@ http://ghostbin.com/paste/JENxv/1qaz2wsx
 <br>
 
 # **~ THANK YOU ~**
-
-[image1]: /images/projects/SoMeSINT (CTF OSINT Write-Up)-image1.png
-
-[image4]: /images/projects/SoMeSINT (CTF OSINT Write-Up)-image4.png
-
-[image6]: /images/projects/SoMeSINT (CTF OSINT Write-Up)-image6.png
-
-[image8]: /images/projects/SoMeSINT (CTF OSINT Write-Up)-image8.png
-
-[image15]: /images/projects/SoMeSINT (CTF OSINT Write-Up)-image15.png
-
-[image17]: /images/projects/SoMeSINT (CTF OSINT Write-Up)-image17.png
-
-[image20]: /images/projects/SoMeSINT (CTF OSINT Write-Up)-image20.png
-
-[image23]: /images/projects/SoMeSINT (CTF OSINT Write-Up)-image23.png

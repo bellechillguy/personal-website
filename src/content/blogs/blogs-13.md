@@ -213,4 +213,6 @@ if __name__ == "__main__":
 
 <br>
 
-#### **Flag: `FindITCTF{w0W_sUch_4n_4W3s0m3_k0aL4}`**
+#### **Flag**
+
+> **FindITCTF{w0W_sUch_4n_4W3s0m3_k0aL4}**

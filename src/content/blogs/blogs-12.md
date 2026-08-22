@@ -41,8 +41,6 @@ date: "2026-05-13"
 
 <br>
 
-# **Flag**
+#### **Flag**
 
-<br>
-
-#### **FindITCTF{watches.caked.land}**
+> **FindITCTF{watches.caked.land}**

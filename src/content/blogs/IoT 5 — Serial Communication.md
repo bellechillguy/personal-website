@@ -181,8 +181,6 @@ void printValues() {
 
 &emsp;Both devices use the I2C protocol, so they share the same SDA and SCL lines. The key is that they have different addresses. The BME280 is at `0x77` and the OLED is at `0x3C`. That's how the ESP32 knows which one to talk to at any given moment.
 
-![][image5]
-
 <br>
 
 &emsp;I had a bit of a struggle here. At first, the OLED wasn’t showing anything. I checked the wiring, re-uploaded the code, checked the wiring again… everything seemed fine. The problem is, I initially used a BMP180 sensor, but it turned out to be damaged. After switching to a BME280, everything finally worked.

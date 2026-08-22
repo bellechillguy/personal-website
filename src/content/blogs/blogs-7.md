@@ -143,4 +143,5 @@ print(plaintext.decode())
 Output: jolly good show m8
 ```
 
-#### **FLAG: `ARA7{__asm__.JMPing_backwards_AND_JMPing_fORwards}`**
+#### **FLAG**
+> **ARA7{__asm__.JMPing_backwards_AND_JMPing_fORwards}**

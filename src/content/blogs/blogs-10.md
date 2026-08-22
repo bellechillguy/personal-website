@@ -17,6 +17,4 @@ date: "2026-02-06"
 
 #### **FLAG**
 
-```text
-ARA7{isnt_signature_malleability_cool?_now_with_a_twist_of_validator_quorums}
-```
+> **ARA7{isnt_signature_malleability_cool?_now_with_a_twist_of_validator_quorums}**

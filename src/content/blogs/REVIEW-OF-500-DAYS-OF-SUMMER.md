@@ -99,5 +99,3 @@ excerpt: "This is not a love story, this is a story about love"
 ### c. Just like what Summer said,
 
   &emsp;“I was sitting in a deli and reading Dorian Gray, and a guy came up to me and asked me about it, and now he is my husband. So, what if I’d gone to the movies? What if I had gone somewhere else for lunch? What if I’d gotten there 10 minutes later? Coincidence. That’s all anything ever is. **Nothing more than coincidence. There’s no such thing as fate. Nothing is meant to be**.”
-
-[image1]: /images/projects/REVIEW-OF-500-DAYS-OF-SUMMER-image1.png
