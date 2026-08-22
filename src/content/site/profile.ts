@@ -4,13 +4,11 @@ export const profile = {
   location: "Bandung, Indonesia",
   education: "System & Information Technology student at ITB",
   shortRole:
-    "I build across web apps, systems, security, IoT, and visual design, with a soft spot for work where the interface has to explain a real technical system.",
+    "I work across web development, network security, and hardware. I specifically enjoy building interfaces that explain how the underlying technical systems actually work.",
   heroStatement:
-    "A systems-minded builder turning security, infrastructure, and interface problems into clear, usable experiences.",
+    "I connect the backend to the interface, focusing on making complex infrastructure and security concepts easy to understand.",
   motivation:
-    "I like projects where the invisible parts matter: data moving through a network, a sensor becoming a dashboard, a backend protecting the right user flow, or a visual system making technical work easier to trust. My work sits between engineering and presentation because good systems deserve to be understood.",
-  availability:
-    "Open to internships, collaborations, student projects, and thoughtful technical conversations.",
+    "I like the messy, invisible parts of tech, like getting a hardware sensor to read data correctly, securing a network, or fixing a slow database query. But I also care a lot about the frontend.",
   links: [
     {
       label: "LinkedIn",
@@ -32,29 +30,3 @@ export const profile = {
     },
   ],
 } as const;
-
-export const principles = [
-  "Make technical systems legible.",
-  "Prefer clear flows over flashy surfaces.",
-  "Use design to build trust, not decoration.",
-  "Document the reasoning, not only the result.",
-] as const;
-
-export const designDirection = [
-  {
-    title: "Macintosh memory",
-    body: "The desktop, dock, windows, and file metaphors stay because they already make the portfolio feel personal and navigable.",
-  },
-  {
-    title: "Liquid glass restraint",
-    body: "Glass appears on navigation and key surfaces where translucency suggests layered context, with strong contrast preserved for reading.",
-  },
-  {
-    title: "Y2K / NewJeans softness",
-    body: "Glossy chips, playful sticker edges, pearly color, and casual copy bring a nostalgic-pop layer without turning the site into a collage.",
-  },
-  {
-    title: "Romantasy atmosphere",
-    body: "Serif accents, celestial markers, and plum-rose depth add a moody romantic note around the technical storytelling.",
-  },
-] as const;

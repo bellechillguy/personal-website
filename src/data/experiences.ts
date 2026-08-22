@@ -37,18 +37,18 @@ export const experiences: ExperienceEntry[] = [
       {
         title: "Visual and Design Staff",
         type: "Contract",
-        period: "2026 – Present",
-        description: "Designed visual materials for HMIF programs and events as a staff.",
+        period: "2026 - Present",
+        description: "Designed visual design and branding for HMIF ITB.",
       },
       {
         title: "Member",
-        period: "2025 – Present",
+        period: "2025 - Present",
       },
       {
         title: "Visual and Design Staff",
         type: "Internship",
         period: "2025 - 2026",
-        description: "Designed visual materials for HMIF programs and events as an intern staff.",
+        description: "Assisted in creating visual design for HMIF ITB.",
       },
     ],
   },
@@ -56,52 +56,47 @@ export const experiences: ExperienceEntry[] = [
     category: "Organization",
     title: "Visual Artist",
     org: "GIM ITB",
-    period: "2026 – Present",
-    description: "Create visual assets and illustrations to support a game development.",
+    period: "2026 - Present",
+    description: "Create visual assets and illustrations for game development projects.",
   },
   {
     category: "Organization",
     title: "Robotic Software Control Department",
     org: "Aksantara ITB",
-    period: "2025 – Present",
-    description:
-      "Build & maintain ground control station software as part of a multidisciplinary engineering team.",
+    period: "2025 - Present",
+    description: "Develop and maintain the ground control station software for the robotics team.",
   },
   {
     category: "Volunteer",
     title: "Graphic Designer",
     org: "TPB Cup 2024",
     period: "2024 - 2025",
-    description:
-      "Designed visual materials for event branding, promotions, and communication assets to support sports competition events.",
+    description: "Designed branding and promotional materials for TPB Cup ITB event.",
   },
   {
     category: "Volunteer",
-    title: "Lead Operator - Bioskop AMI",
+    title: "Lead Operator, Bioskop AMI",
     org: "Aku Masuk ITB 2025",
     period: "2024 - 2025",
-    description:
-      "The head of the event organizer who manages the operational aspects of the film screening",
+    description: "Managed the technical and operational logistics for the film screening.",
   },
   {
     category: "Volunteer",
-    title: "Staff of Event Division - Chairman Election",
-    org: "STEI-K ITB 2024",
+    title: "Event Division Staff",
+    org: "STEI-K ITB Chairman Election",
     period: "2024",
-    description:
-      "Coordinated logistics, communications, and events for the student electoral process.",
+    description: "Organized and ran events for the STEI-K student election.",
   },
   {
     category: "Certification",
     title: "BNSP Junior Web Programmer",
     period: "2023 - 2026",
-    description:
-      "Certified in web programming fundamentals, including application development, database integration, and software implementation.",
+    description: "National certification covering web development and database fundamentals.",
   },
   {
     category: "Education",
     title: "B.S. Information Systems & Technology",
     org: "Institut Teknologi Bandung (ITB)",
-    period: "2024 – Present",
+    period: "2024 - Present",
   },
 ];
