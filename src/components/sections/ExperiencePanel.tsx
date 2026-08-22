@@ -1,20 +1,22 @@
 import { component$ } from "@builder.io/qwik";
-import { experiences } from "@/data/experiences";
+import { experiences, type ExperienceEntry } from "@/data/experiences";
 
-const dotFor: Record<string, string> = {
+const dotFor = {
   Education: "var(--color-accent-strong)",
   Certification: "var(--color-sticky-strong)",
   Organization: "#34d399",
   Volunteer: "#f472b6",
-};
+} satisfies Record<ExperienceEntry["category"], string>;
 
 export const ExperiencePanel = component$(() => {
   return (
     <div class="ml-3">
+      <h1 class="sr-only">Experience</h1>
       {/* Menggunakan flex dan padding alih-alih space-y agar perhitungan garis akurat */}
       <ol class="flex flex-col">
         {experiences.map((e, index) => {
-          const isGrouped = "roles" in e;
+          const roles = "roles" in e ? e.roles : undefined;
+          const isGrouped = Boolean(roles);
           const entryKey = isGrouped ? e.org : e.title;
 
           return (
@@ -37,7 +39,7 @@ export const ExperiencePanel = component$(() => {
                 aria-hidden="true"
                 class="absolute -left-[6.5px] top-4 w-3.5 h-3.5 rounded-full border-[3px] border-surface shadow-sm transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] group-hover:scale-125"
                 style={{
-                  background: dotFor[e.category] || "var(--color-accent)",
+                  background: dotFor[e.category],
                 }}
               />
 
@@ -45,9 +47,9 @@ export const ExperiencePanel = component$(() => {
                 {/* Header Section */}
                 <div class="flex flex-col md:flex-row md:items-start justify-between gap-2 md:gap-4">
                   <div>
-                    <h3 class="experience-card__title font-display text-[17px] font-bold text-foreground leading-tight transition-colors group-hover:text-accent-ink">
+                    <h2 class="experience-card__title font-display text-[17px] font-bold text-foreground leading-tight transition-colors group-hover:text-accent-ink">
                       {isGrouped ? e.org : e.title}
-                    </h3>
+                    </h2>
                     {!isGrouped && e.org && (
                       <p class="mt-1 text-[14px] font-medium text-foreground/70">{e.org}</p>
                     )}
@@ -68,14 +70,14 @@ export const ExperiencePanel = component$(() => {
                 {isGrouped ? (
                   <div class="relative mt-5 ml-1">
                     <div class="flex flex-col">
-                      {e.roles.map((role, roleIndex) => (
+                      {roles?.map((role, roleIndex) => (
                         <section
                           key={`${role.title}-${role.period}`}
                           class="relative pl-5 pb-6 last:pb-0"
                           aria-label={`${role.title} at ${e.org}`}
                         >
                           {/* SUB TIMELINE LINE */}
-                          {roleIndex !== e.roles.length - 1 && (
+                          {roleIndex !== roles.length - 1 && (
                             <span
                               aria-hidden="true"
                               class="absolute left-0 top-[11px] w-px h-full bg-border/80"
@@ -90,9 +92,9 @@ export const ExperiencePanel = component$(() => {
 
                           <div class="flex flex-col gap-0.5">
                             <div class="flex flex-wrap items-baseline gap-x-2 gap-y-1">
-                              <h4 class="font-display text-[15px] font-bold leading-tight text-foreground">
+                              <h3 class="font-display text-[15px] font-bold leading-tight text-foreground">
                                 {role.title}
-                              </h4>
+                              </h3>
                               <time class="text-[12px] font-medium tabular-nums text-foreground/50 before:content-['•'] before:mr-2 before:text-foreground/30">
                                 {role.period}
                               </time>
@@ -109,7 +111,7 @@ export const ExperiencePanel = component$(() => {
                             </p>
                           )}
 
-                          {roleIndex < e.roles.length - 1 && (
+                          {roleIndex < roles.length - 1 && (
                             <span
                               aria-hidden="true"
                               class="mt-5 block h-px bg-border/40 md:hidden"

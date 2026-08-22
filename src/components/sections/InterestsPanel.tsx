@@ -21,6 +21,7 @@ export const InterestsPanel = component$(() => {
 
   return (
     <div class="interests-panel">
+      <h1 class="sr-only">Other interests</h1>
       <div class="interests-links-grid">
         {navLinks.map((link, index) => (
           <a
@@ -36,10 +37,10 @@ export const InterestsPanel = component$(() => {
             </div>
 
             <div class="min-w-0 flex-1">
-              <h3 class="interest-link-title text-foreground">
+              <h2 class="interest-link-title text-foreground">
                 <span class="interest-script-initial">{link.label.slice(0, 1)}</span>
                 <span>{link.label.slice(1)}</span>
-              </h3>
+              </h2>
 
               <p class="interest-link-note text-foreground/60">{link.note}</p>
             </div>

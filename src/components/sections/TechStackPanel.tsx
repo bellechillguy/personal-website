@@ -5,6 +5,7 @@ import { TechTag } from "@/components/icons/BrandIcons";
 export const TechStackPanel = component$(() => {
   return (
     <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
+      <h1 class="sr-only">Tech stack</h1>
       {techStack.map((cat, index) => (
         <section
           key={cat.title}
@@ -27,10 +28,7 @@ export const TechStackPanel = component$(() => {
 
           <ul class="flex flex-wrap gap-2">
             {cat.items.map((it) => (
-              <li
-                key={it.name}
-                class="transition-transform duration-300 ease-[cubic-bezier(0.32,0.72,0,1)] hover:-translate-y-1 hover:scale-105"
-              >
+              <li key={it.name} class="transition-colors duration-200">
                 {TechTag ? (
                   <TechTag name={it.name} color={it.color} iconTone={it.iconTone} />
                 ) : (
