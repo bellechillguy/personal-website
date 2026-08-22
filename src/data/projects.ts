@@ -18,8 +18,7 @@ export interface Project {
 export const projects: Project[] = [
   {
     title: "AquaWatch",
-    blurb:
-      "AI-powered drowning detection combining Computer Vision & IoT for real-time beach safety monitoring.",
+    blurb: "Drowning detection system using computer vision and IoT.",
     image: aquawatchImage,
     tech: [
       "YOLOv26",
@@ -39,8 +38,7 @@ export const projects: Project[] = [
   },
   {
     title: "Moody",
-    blurb:
-      "Mood tracking platform for mental wellbeing. Full-stack with VPS deployment, Linux server config, and Cloudflare tunnel.",
+    blurb: "Full-stack mood tracker deployed on a Linux VPS via Cloudflare tunnel.",
     image: moodyImage,
     tech: [
       "HTML",
@@ -59,8 +57,7 @@ export const projects: Project[] = [
   },
   {
     title: "SIMFASOR",
-    blurb:
-      "Sports facility management & reservation system with MVC architecture, scheduling, reporting, and notifications.",
+    blurb: "MVC-based sports facility management and reservation system.",
     image: simfasorImage,
     tech: ["Java", "Maven", "MySQL"],
     link: "https://github.com/zal1zal/IF2050-2026-K01-G07-SIMFASOR",
@@ -68,8 +65,7 @@ export const projects: Project[] = [
   },
   {
     title: "NimonsCooked!",
-    blurb:
-      "JavaFX multiplayer cooking game inspired by Overcooked and designed around OOP principles and game loops.",
+    blurb: "Multiplayer cooking game built with JavaFX, inspired by Overcooked.",
     image: nimonsCookedImage,
     tech: ["Java", "JavaFX"],
     link: "https://github.com/Nizreal/K01-E-Tugas-Besar-IF2010-Pemrograman-Berorientasi-Objek-STI",
@@ -77,8 +73,7 @@ export const projects: Project[] = [
   },
   {
     title: "Rumah Sakit Nimons",
-    blurb:
-      "Hospital management system in C with role-based access for managers, doctors & patients. Uses ADT, search, and sort algorithms.",
+    blurb: "Hospital management CLI in C with role-based access control.",
     image: rumahSakitImage,
     tech: ["C"],
     link: "https://github.com/Labpro-22/if1210-tubes-2025-k03-e",
@@ -86,8 +81,7 @@ export const projects: Project[] = [
   },
   {
     title: "Graphic Design Portfolio",
-    blurb:
-      "Graphic design works: branding, illustration, event materials, and visual identity across multiple projects.",
+    blurb: "Collection of branding, illustration, and visual identity work.",
     image: graphicDesignImage,
     tech: ["Canva", "Figma", "Procreate"],
     link: "https://canva.link/ilitztq92lrp0ac",
