@@ -15,9 +15,17 @@ export const RouterHead = component$(() => {
       {head.links.map((link, i) => (
         <link key={`link-${i}`} {...link} />
       ))}
-      {head.styles.map((style, i) => (
-        <style key={`style-${i}`} {...style.props} dangerouslySetInnerHTML={style.style} />
-      ))}
+      {head.styles.map((style, i) => {
+        const { dangerouslySetInnerHTML: inlineStyle, ...styleProps } = style.props ?? {};
+
+        return (
+          <style
+            key={`style-${i}`}
+            {...styleProps}
+            dangerouslySetInnerHTML={inlineStyle ?? style.style}
+          />
+        );
+      })}
     </>
   );
 });

@@ -305,8 +305,18 @@ export const iconMap = {
   Procreate: IconProcreate,
 };
 
+export type TechIconName = keyof typeof iconMap;
+
+export function isTechIconName(name: string): name is TechIconName {
+  return Object.hasOwn(iconMap, name);
+}
+
+export function getTechIcon(name: string) {
+  return isTechIconName(name) ? iconMap[name] : undefined;
+}
+
 export function TechTagIcon({ name, ...props }: P & { name: string }) {
-  const TargetIcon = (iconMap as Record<string, any>)[name];
+  const TargetIcon = getTechIcon(name);
 
   if (!TargetIcon) {
     return <span className="w-2 h-2 rounded-full bg-foreground/40 block" aria-hidden />;

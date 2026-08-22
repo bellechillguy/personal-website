@@ -1,6 +1,6 @@
 import { parseMarkdown } from "@/lib/markdown";
 
-const modules = import.meta.glob("/src/content/blogs/*.md", {
+const modules = import.meta.glob<string>("/src/content/blogs/*.md", {
   query: "?raw",
   import: "default",
   eager: true,
@@ -8,9 +8,9 @@ const modules = import.meta.glob("/src/content/blogs/*.md", {
 
 export const posts = Object.entries(modules)
   .map(([path, raw]) => {
-    const parsed = parseMarkdown(raw as string);
+    const parsed = parseMarkdown(raw);
     return {
-      slug: path.split("/").pop()!.replace(".md", ""),
+      slug: path.split("/").pop()?.replace(".md", "") ?? "",
       ...parsed,
     };
   })

@@ -56,6 +56,6 @@ export function parseMarkdown(rawContent: string) {
     title: data.title || "Untitled",
     date: data.date ? new Date(data.date).toISOString() : new Date().toISOString(),
     excerpt: data.excerpt || "",
-    htmlContent: marked.parse(content) as string,
+    htmlContent: marked.parse(content, { async: false }),
   };
 }

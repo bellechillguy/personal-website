@@ -1,5 +1,5 @@
 import { component$ } from "@builder.io/qwik";
-import { iconMap } from "./SystemIcons";
+import { getTechIcon } from "./SystemIcons";
 
 export const TechTag = component$(
   ({
@@ -11,7 +11,7 @@ export const TechTag = component$(
     color?: string;
     iconTone?: "monochrome";
   }) => {
-    const IconComponent = iconMap ? (iconMap as Record<string, any>)[name] : null;
+    const IconComponent = getTechIcon(name);
 
     return (
       <div class="tile-hover flex items-center gap-2 bg-surface border border-border rounded-lg pl-2 pr-3 py-1.5 shadow-[var(--sh-1)]">
