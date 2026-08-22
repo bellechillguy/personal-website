@@ -49,16 +49,15 @@ const PLAYLIST = [
   "/music/less.mp3",
   "/music/maggots-for-brains.mp3",
   "/music/my-way.mp3",
-  "/music/never-do.mp3",
   "/music/purple.mp3",
   "/music/stupid-song.mp3",
   "/music/the-cure.mp3",
   "/music/whats-wrong-with-me.mp3",
 ];
 
-const BASE_DESKTOP_SIZE = 50;
-const BASE_MOBILE_SIZE = 38;
-const MAX_DESKTOP_SIZE = 70;
+const BASE_DESKTOP_SIZE = 46;
+const BASE_MOBILE_SIZE = 36;
+const MAX_DESKTOP_SIZE = 64;
 const MAGNIFICATION_RANGE = 135;
 const SPRING_EASE = 0.22;
 
@@ -142,6 +141,18 @@ function scheduleDockAnimation(dock: HTMLElement) {
 
 function resetDock(dock: HTMLElement) {
   const state = getMotionState(dock);
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    if (state.frame) window.cancelAnimationFrame(state.frame);
+    state.frame = 0;
+    state.icons.forEach((icon) => {
+      state.current.set(icon, BASE_DESKTOP_SIZE);
+      state.target.set(icon, BASE_DESKTOP_SIZE);
+      clearIconSize(icon);
+    });
+    return;
+  }
+
   state.icons.forEach((icon) => {
     const currentSize = Number.parseFloat(icon.style.width) || BASE_DESKTOP_SIZE;
     state.current.set(icon, currentSize);
@@ -153,7 +164,7 @@ function resetDock(dock: HTMLElement) {
 function updateDockMagnification(dock: HTMLElement, mouseX: number) {
   const state = getMotionState(dock);
 
-  if (window.innerWidth < 640) {
+  if (window.innerWidth < 640 || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     if (state.frame) {
       window.cancelAnimationFrame(state.frame);
       state.frame = 0;
@@ -290,7 +301,13 @@ const MusicToggleButton = component$(() => {
 
       <span class="dock-running-indicator" aria-hidden="true" />
 
-      <audio ref={audioRef} src={PLAYLIST[0]} preload="metadata" onEnded$={playNextTrack} />
+      <audio
+        ref={audioRef}
+        src={PLAYLIST[0]}
+        preload="metadata"
+        onEnded$={playNextTrack}
+        onError$={playNextTrack}
+      />
     </button>
   );
 });
@@ -300,7 +317,7 @@ export const Dock = component$(() => {
 
   return (
     <nav
-      class="dock fixed bottom-3 sm:bottom-[26px] left-1/2 -translate-x-1/2 z-40 flex items-end gap-1.5 sm:gap-2 max-w-[calc(100vw-16px)] scrollbar-none touch-pan-x"
+      class="dock fixed bottom-[max(8px,env(safe-area-inset-bottom))] left-1/2 z-40 flex max-w-[calc(100vw-16px)] -translate-x-1/2 touch-pan-x items-end gap-1.5 scrollbar-none sm:gap-2"
       aria-label="Primary applications"
       onMouseMove$={(event, element) => {
         updateDockMagnification(element, event.clientX);

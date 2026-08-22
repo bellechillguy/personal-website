@@ -27,8 +27,8 @@ export const PhotoCard = component$(
             alt={caption}
             class="photo-card__image"
             decoding="async"
-            onError$={(event) => {
-              (event.target as HTMLImageElement).style.display = "none";
+            onError$={(_, element) => {
+              element.style.display = "none";
             }}
           />
         </div>

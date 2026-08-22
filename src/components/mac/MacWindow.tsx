@@ -30,7 +30,7 @@ export const MacWindow = component$(
               </span>
             </Link>
 
-            <span class="traffic-light traffic-light--minimize">
+            <span class="traffic-light traffic-light--minimize" aria-hidden="true">
               <span class="traffic-light__glyph" aria-hidden="true">
                 <svg viewBox="0 0 85.4 85.4" focusable="false">
                   <path d="m17.8 39.1h49.9c1.9 0 3.5 1.6 3.5 3.5v.1c0 1.9-1.6 3.5-3.5 3.5h-49.9c-1.9 0-3.5-1.6-3.5-3.5v-.1c0-1.9 1.5-3.5 3.5-3.5z" />
@@ -38,7 +38,7 @@ export const MacWindow = component$(
               </span>
             </span>
 
-            <span class="traffic-light traffic-light--zoom">
+            <span class="traffic-light traffic-light--zoom" aria-hidden="true">
               <span class="traffic-light__glyph" aria-hidden="true">
                 <svg viewBox="0 0 85.4 85.4" focusable="false">
                   <path d="m31.2 20.8h26.7c3.6 0 6.5 2.9 6.5 6.5v26.7zm23.2 43.7h-26.8c-3.6 0-6.5-2.9-6.5-6.5v-26.8z" />
@@ -48,12 +48,12 @@ export const MacWindow = component$(
           </div>
 
           <div class="mac-titlebar__title absolute inset-x-0 top-1/2 -translate-y-1/2 mx-auto w-fit text-center pointer-events-none z-0 px-20">
-            <h2
+            <span
               id="window-title"
-              class="font-display font-semibold tracking-tight text-foreground truncate max-w-[180px] sm:max-w-[360px]"
+              class="mac-titlebar__label block max-w-[180px] truncate font-display font-semibold tracking-tight text-foreground sm:max-w-[360px]"
             >
               {title}
-            </h2>
+            </span>
             {subtitle ? (
               <p class="text-[10px] text-ink-2 font-normal truncate mt-px">{subtitle}</p>
             ) : null}

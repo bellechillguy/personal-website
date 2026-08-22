@@ -53,9 +53,7 @@ export const ThemePullCord = component$(() => {
   });
 
   const triggerHaptic = $(() => {
-    if (typeof navigator !== "undefined" && navigator.vibrate) {
-      navigator.vibrate(24);
-    }
+    window.navigator.vibrate?.(24);
   });
 
   const changeTheme = $(async () => {

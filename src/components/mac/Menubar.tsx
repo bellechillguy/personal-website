@@ -3,11 +3,13 @@ import { Link, useLocation } from "@builder.io/qwik-city";
 import { ThemePullCord } from "@/components/mac/ThemePullCord";
 
 const formatDate = (date: Date) =>
-  date.toLocaleDateString("en-US", {
-    weekday: "short",
-    month: "short",
-    day: "numeric",
-  });
+  date
+    .toLocaleDateString("en-US", {
+      weekday: "short",
+      month: "short",
+      day: "numeric",
+    })
+    .replace(",", "");
 
 const formatTime = (date: Date) =>
   date.toLocaleTimeString("en-US", {
@@ -88,6 +90,21 @@ export const Menubar = component$(() => {
       </div>
 
       <div class="menubar__right">
+        <div class="menubar__status hidden sm:inline-flex" aria-hidden="true">
+          <svg viewBox="0 0 18 14" fill="none">
+            <path
+              d="M1.25 4.15A11.9 11.9 0 0 1 9 1.25a11.9 11.9 0 0 1 7.75 2.9M3.7 7.25A8.2 8.2 0 0 1 9 5.3a8.2 8.2 0 0 1 5.3 1.95M6.35 10.15A4.15 4.15 0 0 1 9 9.2c1 0 1.91.35 2.65.95M9 12.65h.01"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linecap="round"
+            />
+          </svg>
+          <svg viewBox="0 0 22 12" fill="none">
+            <rect x=".75" y=".75" width="18" height="10.5" rx="2.25" stroke="currentColor" />
+            <rect x="2.5" y="2.5" width="13" height="7" rx="1" fill="currentColor" />
+            <path d="M20.5 4v4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          </svg>
+        </div>
         <time class="menubar__clock" dateTime={dateTime.value}>
           <span class="menubar__clock-date">{dateLabel.value}</span>
           <span class="menubar__clock-time">{timeLabel.value}</span>

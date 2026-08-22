@@ -13,12 +13,15 @@ export default component$(() => {
       class={isHome ? "site-shell site-shell--home" : "site-shell"}
       data-route={location.url.pathname}
     >
+      <a class="skip-link" href="#main-content">
+        Skip to content
+      </a>
       <Menubar />
-      <main class="site-main min-h-screen pt-14 pb-32 px-4 md:px-8">
+      <Dock />
+      <main id="main-content" tabIndex={-1} class="site-main min-h-screen pt-14 pb-32 px-4 md:px-8">
         <Slot />
       </main>
       <SiteFooter />
-      <Dock />
     </div>
   );
 });
