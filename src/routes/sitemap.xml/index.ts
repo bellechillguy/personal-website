@@ -1,9 +1,16 @@
 import type { RequestHandler } from "@builder.io/qwik-city";
 import { getAllPosts } from "@/data/blog";
 
-const BASE_URL = "";
+function escapeXml(value: string) {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&apos;");
+}
 
-export const onGet: RequestHandler = async ({ send, headers }) => {
+export const onGet: RequestHandler = async ({ send, headers, url }) => {
   const today = new Date().toISOString().slice(0, 10);
   const staticPaths = [
     { path: "/", changefreq: "weekly", priority: "1.0" },
@@ -29,7 +36,7 @@ export const onGet: RequestHandler = async ({ send, headers }) => {
     `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`,
     ...entries.map(
       (e) =>
-        `  <url>\n    <loc>${BASE_URL}${e.path}</loc>\n    <lastmod>${e.lastmod}</lastmod>\n    <changefreq>${e.changefreq}</changefreq>\n    <priority>${e.priority}</priority>\n  </url>`,
+        `  <url>\n    <loc>${escapeXml(new URL(e.path, url.origin).href)}</loc>\n    <lastmod>${escapeXml(e.lastmod.slice(0, 10))}</lastmod>\n    <changefreq>${e.changefreq}</changefreq>\n    <priority>${e.priority}</priority>\n  </url>`,
     ),
     `</urlset>`,
   ].join("\n");
